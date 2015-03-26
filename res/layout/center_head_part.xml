@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/my_center_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="192dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/center_user_head_iv"
+                android:layout_width="68dip"
+                android:layout_height="68dip"
+                android:layout_marginBottom="16dip"
+                android:layout_marginLeft="16.0dip"
+                android:background="@drawable/a01" />
+
+            <LinearLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8.0dip"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4.0dip"
+                        android:layout_marginTop="8.0dip"
+                        android:text="唐朝兄弟"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="15dip"
+                        android:layout_height="15dip"
+                        android:layout_marginLeft="16dip"
+                        android:background="@drawable/ic_sex_man" />
+
+                    <TextView
+                        android:id="@+id/center_updateinfo_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4.0dip"
+                        android:layout_marginLeft="8.0dip"
+                        android:text="修改"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_location_yellow"
+                        android:text="长沙"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8.0dip"
+                        android:gravity="right"
+                        android:text="八哥号：76532134"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:text="个性签名：好好学习，天天向上"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/center_partingline_ll"
+        android:layout_width="match_parent"
+        android:layout_height="30.0dip"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16sp"
+            android:gravity="center_vertical"
+            android:text="TA的帖子"
+            android:textColor="@color/edit_hint"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <include layout="@layout/partingline_onehight_part" />
+
+</LinearLayout>

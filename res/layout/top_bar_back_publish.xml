@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_hight"
+    android:background="@color/index_color"
+    android:gravity="center_vertical" >
+
+     <TextView
+         android:id="@+id/top_bar_return_publish_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_back"
+        android:drawablePadding="8.0dip"
+        android:layout_centerVertical="true"
+        android:onClick="publishBackBtn"
+        android:text="@string/returnstring"
+        android:clickable="true"
+        android:layout_marginLeft="8.0dip"
+        android:textColor="@color/white" />
+
+    <TextView
+         android:id="@+id/top_bar_title_publish_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="社区"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_text_size" />
+
+    <Button
+        android:layout_width="@dimen/title_hight"
+        android:layout_height="@dimen/title_hight"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:onClick="publishbtn"
+        android:background="@drawable/ic_talk" />
+
+</RelativeLayout>

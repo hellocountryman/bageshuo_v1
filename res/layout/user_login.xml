@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/top_bar_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.3"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_launcher" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dip"
+                android:gravity="center_horizontal"
+                android:text="@string/introduce"
+                android:textColor="@color/index_color"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- 输入框 -->
+
+        <include layout="@layout/part_login_head" />
+
+        <!-- 确定按钮 -->
+
+        <include layout="@layout/part_login_loginbtn" />
+
+        <include layout="@layout/part_login_huo"/>
+       
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <!-- 第三方登录 -->
+            <include layout="@layout/part_login_otherlogin" />
+
+            <TextView
+                android:id="@+id/login_forgetword_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8.0dip"
+                android:layout_marginTop="8dip"
+                android:gravity="center_horizontal"
+                android:text="@string/forgetword"
+                android:textColor="@color/logingray"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8.0dip"
+                android:gravity="center_horizontal"
+                android:text="@string/verson"
+                android:textColor="@color/logingray"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

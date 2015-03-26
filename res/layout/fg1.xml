@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_hight"
+        android:background="@color/index_color" >
+
+        <ImageView
+            android:id="@+id/home_user_head"
+            android:layout_width="50.0dip"
+            android:layout_height="50.0dip"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/a01" />
+
+        <ImageView
+            android:layout_width="50.0dip"
+            android:layout_height="50.0dip"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:focusable="false"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/pic_user_mask" />
+
+        <ImageView
+            android:layout_width="182dip"
+            android:layout_height="27.0dip"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_search_input" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/mainFrame"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="162dip" >
+                </android.support.v4.view.ViewPager>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/viewpager"
+                    android:orientation="vertical"
+                    android:padding="5dip" >
+
+                    <TextView
+                        android:id="@+id/description_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:id="@+id/points_ll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dip"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/home_hothome_ll"
+                android:layout_width="match_parent"
+                android:layout_height="52dip"
+                android:background="@color/content_bg"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_view" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8.0dip"
+                    android:text="@string/searchmore"
+                    android:textColor="@color/more_home_color"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="9dip"
+                    android:layout_height="12dip"
+                    android:layout_marginLeft="4.0dip"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_arrow_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="@color/content_bg"
+                android:orientation="horizontal" >
+
+                <com.feytuo.bageshuo.widget.HomeGridView
+                    android:id="@+id/home_gv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16.0dip"
+                    android:layout_marginRight="16.0dip"
+                    android:horizontalSpacing="20dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="10dip" >
+                </com.feytuo.bageshuo.widget.HomeGridView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8.0dip"
+                android:layout_marginTop="8dip"
+                android:background="@drawable/ic_more_main"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4.0dip"
+                    android:layout_marginLeft="16dip"
+                    android:layout_marginTop="8.0dip"
+                    android:text="@string/more_internet"
+                    android:textColor="@color/more_home_color"
+                    android:textSize="12sp" />
+
+                <include layout="@layout/home_topic_part" />
+
+                <include layout="@layout/partingline_part" />
+
+                <include layout="@layout/home_persons_part" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

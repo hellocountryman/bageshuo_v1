@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/set_select_head_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:visibility="gone" >
+
+    <include layout="@layout/partingline_bottom_part" />
+
+    <Button
+        style="@style/set_sex_head_btn"
+        android:layout_marginTop="8.0dip"
+        android:onClick="setSelectImgfromcameraBtn"
+        android:text="@string/camera" />
+
+    <include layout="@layout/partingline_bottom_part" />
+
+    <Button
+        style="@style/set_sex_head_btn"
+        android:onClick="setSelectImgfromphoneBtn"
+        android:text="@string/phone" />
+
+    <include layout="@layout/partingline_bottom_part" />
+
+    <Button
+        style="@style/set_sex_head_btn"
+        android:onClick="setSelectImgCancelBtn"
+        android:text="@string/quxiao" />
+
+</LinearLayout>

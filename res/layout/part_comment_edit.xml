@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <include layout="@layout/partingline_bottom_part" />
+
+    <LinearLayout
+        android:id="@+id/comment_edit_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/index_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/comment_add_btn"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:background="@drawable/ic_talk"
+            android:contentDescription="@string/app_name" />
+
+        <EditText
+            android:id="@+id/comment_text_edit"
+            android:layout_width="0dp"
+            android:layout_height="30.0dip"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="5"
+            android:background="@color/white"
+            android:inputType="textMultiLine"
+            android:padding="3dp"
+            android:singleLine="false" />
+
+        <Button
+            android:id="@+id/comment_send_btn"
+            android:layout_width="60.0dip"
+            android:layout_height="30.0dip"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginTop="8.0dip"
+            android:background="@null"
+            android:text="@string/send"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/comment_record_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16.0dip"
+            android:layout_marginTop="16.0dip" >
+
+            <Button
+                android:id="@+id/comment_delete_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="100dip"
+                android:layout_toLeftOf="@+id/comment_record_btn"
+                android:background="@drawable/ic_comment_delete"
+                android:contentDescription="@string/app_name" />
+
+            <Button
+                android:id="@+id/comment_record_btn"
+                android:layout_width="150dip"
+                android:layout_height="150dip"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bt_comment_record_1" />
+
+            <TextView
+                android:id="@+id/comment_record_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawableTop="@drawable/commentheadphones"
+                android:gravity="center_horizontal"
+                android:focusable="false"
+                android:visibility="gone"
+                android:textColor="@color/index_color"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/comment_audition_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="100dp"
+                android:layout_toRightOf="@+id/comment_record_btn"
+                android:background="@drawable/ic_comment_play"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+
+        <include layout="@layout/partingline_bottom_part" />
+    </LinearLayout>
+
+</LinearLayout>

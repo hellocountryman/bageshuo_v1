@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/corners_storke_white"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="80dip"
+        android:gravity="center_vertical"
+        android:text="@string/isattention"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <include layout="@layout/partingline_onehight_part" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="确定"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="1dip"
+            android:layout_height="40.0dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/huatiandperson" />
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/index_color"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>

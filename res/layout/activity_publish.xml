@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/publish_rotate_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/publish_record_10" />
+
+        <ImageView
+            android:id="@+id/publish_record_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/ic_volume_normal" />
+
+        <ImageView
+            android:id="@+id/publish_headphone_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_headphones"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/publish_recordtime_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="15s"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_hight"
+        android:layout_alignParentBottom="true"
+        android:background="@color/index_color"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="50.0dip"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="publishDeleteBtn"
+            android:text="取消"
+            android:textColor="@color/white" />
+
+        <include layout="@layout/partingline_vertical_part" />
+
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="50.0dip"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dip"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/ic_location"
+                android:gravity="center"
+                android:text="长沙"
+                android:textColor="@color/location" />
+        </RelativeLayout>
+
+        <include layout="@layout/partingline_vertical_part" />
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="50.0dip"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="publishEditTextBtn"
+            android:text="下一步"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</RelativeLayout>

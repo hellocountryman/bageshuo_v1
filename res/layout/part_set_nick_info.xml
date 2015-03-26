@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dip"
+    android:background="@color/white"
+    android:clickable="true"
+    android:gravity="center_vertical"
+    android:onClick="settingNickLl"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/click_text_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dip"
+        android:text="@string/nick" />
+
+    <EditText
+        android:id="@+id/user_set_nick_et"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+         android:layout_marginLeft="25dip"
+        android:ems="10"
+        android:background="@null"
+        style="@style/text_black"
+        android:inputType="textPersonName" >
+        <requestFocus />
+    </EditText>
+
+    <ImageView
+        android:layout_width="12.0dip"
+        android:layout_height="12.0dip"
+        android:layout_marginRight="10.0dip"
+        android:src="@drawable/ic_arrow_right" />
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <include  layout="@layout/top_bar_no_back_title"/>
+
+    <com.feytuo.bageshuo.widget.FindCardContainer
+        android:id="@+id/find_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/find_like_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/ic_talk" />
+
+</LinearLayout>

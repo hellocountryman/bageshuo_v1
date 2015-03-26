@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
+    android:layout_width="0.0dip"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@drawable/ic_invitation_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dip" >
+
+        <TextView
+            android:id="@+id/home_details_usernick_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8.0dip"
+            android:text="追风少年"
+            android:textColor="@color/text_hint"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/home_details_usersex_iv"
+            android:layout_width="10dip"
+            android:layout_height="10dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8.0dip"
+            android:layout_toRightOf="@+id/home_details_usernick_tv"
+            android:background="@drawable/ic_sex_man" />
+
+        <TextView
+            android:id="@+id/home_details_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8.0dip"
+            android:text="2015-12-12 15:00"
+            android:textColor="@color/text_hint"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/home_details_invitation_title_tv"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:lineSpacingExtra="2.0dip"
+            android:paddingBottom="8.0dip"
+            android:paddingLeft="8.0dip"
+            android:paddingRight="4dip"
+            android:text="长沙的天气好好的说长长沙的"
+            android:textColor="@color/tiezi"
+            android:textSize="14sp" />
+
+        <include layout="@layout/partingline_vertical_part" />
+
+        <RelativeLayout
+            android:layout_width="35dip"
+            android:layout_height="30dip"
+            android:layout_marginRight="8.0dip" >
+
+            <ImageView
+                android:id="@+id/home_details_paly_iv"
+                android:layout_width="35dip"
+                android:layout_height="30dip"
+                android:background="@drawable/recordbtn_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="23"
+                android:textColor="@color/text_hint"
+                android:textSize="10sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dip"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bt_home" >
+
+    <TextView
+        android:id="@+id/gridview_homename_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dip"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/gridview_homenum_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dip"
+        android:background="@drawable/ic_number"
+        android:clickable="false"
+        android:focusable="false"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+</RelativeLayout>

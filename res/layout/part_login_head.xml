@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="28dip"
+    android:layout_marginRight="28dip"
+    android:background="@drawable/input_phone_bg"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/login_phone_et"
+        style="@style/edit_text_hint"
+        android:layout_width="match_parent"
+        android:layout_height="62dip"
+        android:layout_marginLeft="28dip"
+        android:layout_marginRight="28dip"
+        android:background="@null"
+        android:drawableLeft="@drawable/ic_user"
+        android:drawablePadding="28dip"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:inputType="phone"
+        android:hint="@string/pleaseinputusername" >
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:layout_marginLeft="25dip"
+        android:layout_marginRight="25dip"
+        android:background="@color/huatiandperson"
+        android:drawablePadding="28dip" />
+
+    <EditText
+        android:id="@+id/login_word_et"
+        style="@style/edit_text_hint"
+        android:layout_width="match_parent"
+        android:layout_height="62dip"
+        android:layout_marginLeft="28dip"
+        android:layout_marginRight="28dip"
+        android:background="@null"
+        android:drawableLeft="@drawable/ic_secret"
+        android:drawablePadding="28dip"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:inputType="textPassword"
+        android:hint="@string/pleaseinputword" >
+    </EditText>
+
+</LinearLayout>

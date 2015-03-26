@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="95dip" >
+
+    <ImageView
+        android:id="@+id/home_details_logo_iv"
+        android:layout_width="61dip"
+        android:layout_height="61dip"
+        android:layout_marginLeft="16dip"
+        android:layout_marginTop="25dip"
+        android:background="@drawable/ic_beijing" />
+
+    <TextView
+        android:id="@+id/home_details_home_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dip"
+        android:layout_marginTop="32dip"
+        android:layout_toRightOf="@+id/home_details_logo_iv"
+        android:text="北京社区"
+        android:clickable="true"
+        android:focusable="true"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/home_details_atttention_btn"
+        android:layout_width="50dip"
+        android:layout_height="25.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dip"
+        android:layout_marginRight="18dip"
+        android:background="@drawable/ic_guanzhu" />
+
+    <TextView
+        android:id="@+id/home_details_attenttion_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="18dip"
+        android:layout_toRightOf="@+id/home_details_logo_iv"
+        android:text="关注"
+        android:textColor="@color/tiezi"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/home_details_attenttion_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="10dip"
+        android:layout_toRightOf="@+id/home_details_attenttion_tv"
+        android:text="22500"
+        android:textColor="@color/tiezinum"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/home_details_invitation_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_toRightOf="@+id/home_details_attenttion_num_tv"
+        android:text="帖子"
+        android:textColor="@color/tiezi"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/home_details_invitation_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="10.0dip"
+        android:layout_toRightOf="@+id/home_details_invitation_tv"
+        android:text="58552"
+        android:textColor="@color/tiezinum"
+        android:textSize="14sp" />
+
+</RelativeLayout>

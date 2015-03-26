@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0.0dip"
+    android:layout_marginLeft="40dip"
+    android:layout_marginRight="40dip"
+    android:layout_marginTop="8dip"
+    android:layout_weight="1"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/login_weibo_tv"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawablePadding="4dip"
+        android:drawableTop="@drawable/weibo"
+        android:gravity="center_horizontal"
+        android:text="@string/weiboLogin"
+        android:textColor="@color/otherlogin" />
+
+    <TextView
+        android:id="@+id/login_qq_tv"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawablePadding="4dip"
+        android:drawableTop="@drawable/qq"
+        android:gravity="center_horizontal"
+        android:text="@string/qqLogin"
+        android:textColor="@color/otherlogin" />
+
+    <TextView
+        android:id="@+id/login_weixin_tv"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawablePadding="4dip"
+        android:drawableTop="@drawable/wechart"
+        android:gravity="center_horizontal"
+        android:text="@string/weixinLogin"
+        android:textColor="@color/otherlogin" />
+
+</LinearLayout>
