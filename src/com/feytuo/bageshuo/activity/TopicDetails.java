@@ -34,6 +34,7 @@ public class TopicDetails extends Activity {
 
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
 		titleTv.setText(R.string.topicdetails);// 设置标题；
+		
 
 	}
 
