@@ -54,5 +54,5 @@
        <string name="getverification">获取验证码</string>
        <string name="bageonce">八哥一下</string>
         <string name="returnstring">返回</string>
-       
+         <string name="update">修改</string>
 </resources>

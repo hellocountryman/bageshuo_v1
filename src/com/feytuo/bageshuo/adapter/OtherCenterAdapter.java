@@ -5,31 +5,34 @@ import java.util.Map;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.feytuo.bageshuo.HomeDetailsIntroduce;
 import com.feytuo.bageshuo.InvitationDetailsActivity;
-import com.feytuo.bageshuo.OtherCenter;
 import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.util.BitmapUtil;
 import com.feytuo.bageshuo.util.ToolAnimation;
 /**
- * 社区详情的适配器，注意有2段布局
+ *他人个人中心适配器
  * 
- * @date 2015-03-16
+ * @date 2015-03-25
  * 
  * @version v1.0
  * 
  * @author tangpeng
  * 
  */
-public class HomeDetailsListViewAdapter extends BaseAdapter {
+public class OtherCenterAdapter extends BaseAdapter {
 	private Context context;
 	private LayoutInflater inflater;
 	private int resource;
@@ -40,7 +43,7 @@ public class HomeDetailsListViewAdapter extends BaseAdapter {
 	NewViewHolder1 holder1 = null;
 	NewViewHolder2 holder2 = null;
 
-	public HomeDetailsListViewAdapter(Context context,
+	public OtherCenterAdapter(Context context,
 			List<? extends Map<String, ?>> data) {
 		this.list = data;
 		this.context = context;
@@ -86,15 +89,12 @@ public class HomeDetailsListViewAdapter extends BaseAdapter {
 		if (convertView == null) {
 			switch (type) {
 			case TYPE_1:
-				convertView = inflater.inflate(R.layout.home_details_top_part,
+				convertView = inflater.inflate(R.layout.center_head_part,
 						null);// 同样是将布局转化成view
 				holder1 = new NewViewHolder1();
-				holder1.homeDetailsLogoLv= (ImageView) convertView
-						.findViewById(R.id.home_details_logo_iv);
-				holder1.homeDetailsHomeNameTv= (TextView) convertView
-						.findViewById(R.id.home_details_home_name_tv);
-				
-				
+				holder1.centerUpdateinfoTv= (TextView) convertView.findViewById(R.id.center_updateinfo_tv);
+				holder1.centerUserHeadIv=(ImageView)convertView.findViewById(R.id.center_user_head_iv);
+				holder1.centerPartinglineLl=(LinearLayout)convertView.findViewById(R.id.center_partingline_ll);
 				convertView.setTag(holder1);
 				break;
 			case TYPE_2:
@@ -152,11 +152,14 @@ public class HomeDetailsListViewAdapter extends BaseAdapter {
 	 */
 	private void dealtype1(int position) {
 		
+		Bitmap  bitmap=BitmapFactory.decodeResource(context.getResources(), R.drawable.a01);
+		Bitmap bitmapround=BitmapUtil.toRoundBitmap(bitmap);
+		BitmapDrawable bd=new BitmapDrawable(bitmapround);
+		holder1.centerUserHeadIv.setBackgroundDrawable(bd);
+	
+		holder1.centerUpdateinfoTv.setVisibility(View.GONE);
 		
-		listener1 listen1 = new listener1(holder1, position);
-		holder1.homeDetailsLogoLv.setOnClickListener(listen1);
-		holder1.homeDetailsHomeNameTv.setOnClickListener(listen1);
-		
+		holder1.centerPartinglineLl.setVisibility(View.VISIBLE);
 	}
 
 	/**
@@ -195,9 +198,9 @@ public class HomeDetailsListViewAdapter extends BaseAdapter {
 			switch (v.getId()) {
 		
 			default:
-				Intent intent = new Intent();
-				intent.setClass(context, HomeDetailsIntroduce.class);
-				context.startActivity(intent);
+//				Intent intent = new Intent();
+//				intent.setClass(context, HomeDetailsIntroduce.class);
+//				context.startActivity(intent);
 
 				break;
 			}
@@ -220,9 +223,8 @@ public class HomeDetailsListViewAdapter extends BaseAdapter {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.home_details_userhead_iv:
-				Intent intentperson = new Intent();
-				intentperson.setClass(context, OtherCenter.class);
-				context.startActivity(intentperson);
+				Toast.makeText(context, "你点击了用户的头像第" + position + "个",
+						Toast.LENGTH_LONG).show();
 				break;
 			case R.id.home_details_paly_iv:
 				ToolAnimation.animationdeal(context, holder2.homeDetailsPalyIv);
@@ -242,9 +244,9 @@ public class HomeDetailsListViewAdapter extends BaseAdapter {
 	 * 社区logo，介绍，帖子数目，关注
 	 */
 	class NewViewHolder1 {
-
-		private ImageView homeDetailsLogoLv;// 用户的性别
-		private TextView homeDetailsHomeNameTv;//社区名字
+		private ImageView centerUserHeadIv;//用户头像
+		private TextView centerUpdateinfoTv;//修改个人信息
+		private LinearLayout  centerPartinglineLl;//帖子和个人信息的分割线
 	}
 
 	/**
