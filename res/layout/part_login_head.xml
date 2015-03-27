@@ -5,6 +5,8 @@
     android:layout_marginLeft="28dip"
     android:layout_marginRight="28dip"
     android:background="@drawable/input_phone_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical" >
 
     <EditText
@@ -19,9 +21,8 @@
         android:drawablePadding="28dip"
         android:ems="10"
         android:gravity="center_vertical"
-        android:inputType="phone"
-        android:hint="@string/pleaseinputusername" >
-        <requestFocus />
+        android:hint="@string/pleaseinputusername"
+        android:inputType="phone" >
     </EditText>
 
     <TextView
@@ -44,8 +45,8 @@
         android:drawablePadding="28dip"
         android:ems="10"
         android:gravity="center_vertical"
-        android:inputType="textPassword"
-        android:hint="@string/pleaseinputword" >
+        android:hint="@string/pleaseinputword"
+        android:inputType="textPassword" >
     </EditText>
 
 </LinearLayout>

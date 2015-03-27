@@ -38,7 +38,7 @@ public class UserLogin extends Activity {
 
 	public void initView() {
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
-		titleTv.setText("注册");// 设置标题；
+		titleTv.setText("登录");// 设置标题；
 
 		loginPhoneEt = (EditText) findViewById(R.id.login_phone_et);
 		loginWordEt = (EditText) findViewById(R.id.login_word_et);

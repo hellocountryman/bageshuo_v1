@@ -3,44 +3,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/content_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical" >
 
     <include layout="@layout/top_bar_back" />
 
     <EditText
         android:id="@+id/register_input_phone_et"
+        style="@style/edit_text_hint"
         android:layout_width="match_parent"
         android:layout_height="62dip"
         android:layout_marginTop="32dip"
         android:background="@drawable/input_phone_bg"
         android:ems="10"
-        android:paddingLeft="40dip"
-        android:inputType="phone"
         android:hint="@string/intput_phone"
-        style="@style/edit_text_hint" >
-        <requestFocus />
+        
+        android:inputType="phone"
+        android:paddingLeft="40dip" >
     </EditText>
 
     <Button
-       android:onClick="registerInputPhoneNextBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="28dip"
         android:layout_marginRight="28dip"
         android:layout_marginTop="27dip"
         android:background="@drawable/next_bg"
+        android:onClick="registerInputPhoneNextBtn"
         android:text="@string/next"
         android:textColor="@color/index_color"
         android:textSize="18sp" />
 
     <TextView
+        style="@style/text_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="28dip"
         android:layout_marginRight="28dip"
         android:layout_marginTop="28dip"
-        android:text="@string/phone_hint"
-        style="@style/text_hint"
-         />
+        android:text="@string/phone_hint" />
 
 </LinearLayout>

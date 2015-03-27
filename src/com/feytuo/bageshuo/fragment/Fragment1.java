@@ -25,8 +25,9 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.feytuo.bageshuo.ExcessiveViewPagerActivity;
+import com.feytuo.bageshuo.HomePersonSearch;
 import com.feytuo.bageshuo.HotHomeActivity;
-import com.feytuo.bageshuo.MyCenterInfo;
+import com.feytuo.bageshuo.MyCenterViewpager;
 import com.feytuo.bageshuo.PersonsList;
 import com.feytuo.bageshuo.R;
 import com.feytuo.bageshuo.TopicList;
@@ -56,6 +57,7 @@ public class Fragment1 extends Fragment {
 	private List<Map<String, Object>> data_list;
 	private GridviewAdapter gridviewadapter;
 	private ImageView homeUserHead;// 用户头像
+	private ImageView homeSearchIv;//点击搜索人获取社区
 	private LinearLayout homeHothomeLl;// 探索更多感兴趣的社区布局
 	private LinearLayout homeTopicPartLL;// 点击进入话题的布局
 	private LinearLayout homePersonsPartLL;// 探索更多感兴趣的社区布局
@@ -92,12 +94,14 @@ public class Fragment1 extends Fragment {
 				R.id.home_persons_part_ll);
 		homeUserHead = (ImageView) getActivity().findViewById(
 				R.id.home_user_head);
-
+		homeSearchIv= (ImageView) getActivity().findViewById(
+				R.id.home_search_iv);
 		listener listen = new listener();
 		homeHothomeLl.setOnClickListener(listen);
 		homeTopicPartLL.setOnClickListener(listen);
 		homePersonsPartLL.setOnClickListener(listen);
 		homeUserHead.setOnClickListener(listen);
+		homeSearchIv.setOnClickListener(listen);
 	}
 
 	class listener implements OnClickListener {
@@ -117,8 +121,12 @@ public class Fragment1 extends Fragment {
 				intent.setClass(getActivity(), PersonsList.class);
 				break;
 			case R.id.home_user_head:
-				intent.setClass(getActivity(), ExcessiveViewPagerActivity.class);
-//				intent.setClass(getActivity(), MyCenterInfo.class);
+//				intent.setClass(getActivity(), ExcessiveViewPagerActivity.class);
+				intent.setClass(getActivity(), MyCenterViewpager.class);
+				break;
+			case R.id.home_search_iv:
+				intent.setClass(getActivity(), HomePersonSearch.class);
+//				intent.setClass(getActivity(), MyCenterViewpager.class);
 				break;
 
 			default:

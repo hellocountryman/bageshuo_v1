@@ -82,11 +82,23 @@
             android:label="@string/app_name" >
         </activity>
           <activity
-            android:name="com.feytuo.bageshuo.MyCenter"
+            android:name="com.feytuo.bageshuo.OtherCenter"
             android:label="@string/app_name" >
         </activity>
          <activity
-            android:name="com.feytuo.bageshuo.MyCenterInfo"
+            android:name="com.feytuo.bageshuo.MyCenterViewpager"
+            android:label="@string/app_name" >
+        </activity>
+          <activity
+            android:name="com.feytuo.bageshuo.Setting"
+            android:label="@string/app_name" >
+        </activity>
+          <activity
+            android:name="com.feytuo.bageshuo.UpdateInfo"
+            android:label="@string/app_name" >
+        </activity>
+           <activity
+            android:name="com.feytuo.bageshuo.HomePersonSearch"
             android:label="@string/app_name" >
         </activity>
     </application>

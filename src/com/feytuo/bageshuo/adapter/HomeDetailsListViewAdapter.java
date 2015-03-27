@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.feytuo.bageshuo.HomeDetailsIntroduce;
 import com.feytuo.bageshuo.InvitationDetailsActivity;
-import com.feytuo.bageshuo.MyCenter;
+import com.feytuo.bageshuo.OtherCenter;
 import com.feytuo.bageshuo.R;
 import com.feytuo.bageshuo.util.ToolAnimation;
 /**
@@ -221,7 +221,7 @@ public class HomeDetailsListViewAdapter extends BaseAdapter {
 			switch (v.getId()) {
 			case R.id.home_details_userhead_iv:
 				Intent intentperson = new Intent();
-				intentperson.setClass(context, MyCenter.class);
+				intentperson.setClass(context, OtherCenter.class);
 				context.startActivity(intentperson);
 				break;
 			case R.id.home_details_paly_iv:

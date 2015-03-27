@@ -7,8 +7,10 @@
     <color name="more_home_color">#93959b</color>
     <color name="title_hint">#b8b8b8</color>
     <color name="text_hint">#8b8b8b</color>
+     <color name="twoheight">#d9d0c9</color>
     
-    
+     <color name="dynamictext">#bcbfc3</color>
+     
       <color name="location">#656d78</color>
     
     <color name="tiezi">#3e3f40</color>

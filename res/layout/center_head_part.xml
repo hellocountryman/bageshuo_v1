@@ -2,12 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/my_center_bg"
     android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="192dip" >
+        android:layout_height="192dip"
+        android:background="@drawable/my_center_bg"
+        android:paddingBottom="2.0dip" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,13 +34,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4.0dip"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal" >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4.0dip"
-                        android:layout_marginTop="8.0dip"
                         android:text="唐朝兄弟"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
@@ -54,9 +55,9 @@
                         android:id="@+id/center_updateinfo_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4.0dip"
                         android:layout_marginLeft="8.0dip"
-                        android:text="修改"
+                        android:text="@string/update"
+                        android:clickable="true"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -64,6 +65,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
                     android:orientation="horizontal" >
 
                     <TextView
@@ -77,7 +79,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8.0dip"
+                        android:layout_marginRight="16.0dip"
                         android:gravity="right"
                         android:text="八哥号：76532134"
                         android:textColor="@color/white"
@@ -98,9 +100,10 @@
     <LinearLayout
         android:id="@+id/center_partingline_ll"
         android:layout_width="match_parent"
-        android:layout_height="30.0dip"
+        android:layout_height="31.0dip"
         android:background="@color/white"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:visibility="gone" >
 
         <TextView
             android:layout_width="match_parent"
@@ -110,8 +113,8 @@
             android:text="TA的帖子"
             android:textColor="@color/edit_hint"
             android:textSize="13sp" />
-    </LinearLayout>
 
-    <include layout="@layout/partingline_onehight_part" />
+        <include layout="@layout/partingline_onehight_part" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -36,9 +36,10 @@ public class BageshuoTranslate extends Activity {
 	}
 
 	private void initView() {
-		// TODO Auto-generated method stub
+
+		TextView titleTv = (TextView) findViewById(R.id.top_bar_return_tv);
+		titleTv.setText("八哥一下");// 设置标题；
 		bageshuoSpinner = (Spinner) findViewById(R.id.bageshuo_spinner);
-		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_item,R.id.spinner_item_tv,cityInfo);
 
 		// 为spinner添加适配器
@@ -74,7 +75,7 @@ public class BageshuoTranslate extends Activity {
 		}
 	}
 	
-	public void onBackBtn()
+	public void onBackBtn(View v)
 	{
 		finish();
 	}

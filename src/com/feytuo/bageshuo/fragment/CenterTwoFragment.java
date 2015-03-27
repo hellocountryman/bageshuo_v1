@@ -1,47 +1,62 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.fragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.KeyEvent;
-import android.widget.TextView;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 
-import com.feytuo.bageshuo.adapter.centerAdapter;
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.adapter.MyCenterAdapter;
 import com.feytuo.bageshuo.widget.XListView;
 import com.feytuo.bageshuo.widget.XListView.IXListViewListener;
-
-public class MyCenter extends Activity implements IXListViewListener {
-	private XListView centerXlv;
+/**
+ *自己个人中心适配器
+ * 
+ * @date 2015-03-26
+ * 
+ * @version v1.0
+ * 
+ * @author tangpeng
+ * 
+ */
+public class CenterTwoFragment extends Fragment implements IXListViewListener{
+	private XListView centerOneXlv;
 	private Handler mHandler;
 	private ArrayList<Map<String, Object>> dlist;
-	private centerAdapter adapter;
+	private MyCenterAdapter adapter;
 	private String[] arraytitle = { "从女性的角度来看，一件喜欢的商品打折了从女性的角度来看从女性的角度来看",
 			"tangxiao", "朋友跟我哭诉，说因为太穷而经常失恋", "朋友跟我哭诉，说因为太穷而经常失恋", "tangxiao" };
 	private int[] arrayuserhead = { R.drawable.lunbo, R.drawable.lunbo,
 			R.drawable.lunbo, R.drawable.lunbo, R.drawable.lunbo };
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.my_center);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_center_two, container,
+				false);
+		return view;
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
 		
 		initView();
 	}
 
 	private void initView() {
-		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
-		titleTv.setText("个人中心");// 设置标题；
-
-		centerXlv = (XListView) findViewById(R.id.center_xlv);// 你这个listview是在这个layout里面
-		centerXlv.setPullRefreshEnable(false);// 不让他刷新
-		adapter = new centerAdapter(MyCenter.this,getData());
-		centerXlv.setAdapter(adapter);
-		centerXlv.setXListViewListener(this);
+		centerOneXlv = (XListView) getActivity().findViewById(R.id.center_two_xlv);// 你这个listview是在这个layout里面
+		centerOneXlv.setPullRefreshEnable(false);// 不让他刷新
+		adapter = new MyCenterAdapter(getActivity(), getData());
+		centerOneXlv.setAdapter(adapter);
+		centerOneXlv.setXListViewListener(this);
 		mHandler = new Handler();
 	}
 
@@ -58,9 +73,9 @@ public class MyCenter extends Activity implements IXListViewListener {
 
 	/** 停止刷新， */
 	private void onLoad() {
-		centerXlv.stopRefresh();
-		centerXlv.stopLoadMore();
-		centerXlv.setRefreshTime("刚刚");
+		centerOneXlv.stopRefresh();
+		centerOneXlv.stopLoadMore();
+		centerOneXlv.setRefreshTime("刚刚");
 	}
 
 	// 刷新
@@ -71,7 +86,7 @@ public class MyCenter extends Activity implements IXListViewListener {
 			@Override
 			public void run() {
 				getData();
-				centerXlv.setAdapter(adapter);
+				centerOneXlv.setAdapter(adapter);
 				onLoad();
 			}
 		}, 2000);
@@ -88,13 +103,5 @@ public class MyCenter extends Activity implements IXListViewListener {
 				onLoad();
 			}
 		}, 2000);
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-			this.finish();
-		}
-		return false;
 	}
 }

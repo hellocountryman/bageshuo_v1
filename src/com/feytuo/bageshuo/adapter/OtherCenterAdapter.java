@@ -14,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ import com.feytuo.bageshuo.R;
 import com.feytuo.bageshuo.util.BitmapUtil;
 import com.feytuo.bageshuo.util.ToolAnimation;
 /**
- *个人中心适配器，注意有2段布局，看个人的帖子，和看别人的帖子都是一样的适配器
+ *他人个人中心适配器
  * 
  * @date 2015-03-25
  * 
@@ -31,7 +32,7 @@ import com.feytuo.bageshuo.util.ToolAnimation;
  * @author tangpeng
  * 
  */
-public class centerAdapter extends BaseAdapter {
+public class OtherCenterAdapter extends BaseAdapter {
 	private Context context;
 	private LayoutInflater inflater;
 	private int resource;
@@ -42,7 +43,7 @@ public class centerAdapter extends BaseAdapter {
 	NewViewHolder1 holder1 = null;
 	NewViewHolder2 holder2 = null;
 
-	public centerAdapter(Context context,
+	public OtherCenterAdapter(Context context,
 			List<? extends Map<String, ?>> data) {
 		this.list = data;
 		this.context = context;
@@ -91,9 +92,9 @@ public class centerAdapter extends BaseAdapter {
 				convertView = inflater.inflate(R.layout.center_head_part,
 						null);// 同样是将布局转化成view
 				holder1 = new NewViewHolder1();
-				holder1.centerUpdateinfoTv= (TextView) convertView
-						.findViewById(R.id.center_updateinfo_tv);
+				holder1.centerUpdateinfoTv= (TextView) convertView.findViewById(R.id.center_updateinfo_tv);
 				holder1.centerUserHeadIv=(ImageView)convertView.findViewById(R.id.center_user_head_iv);
+				holder1.centerPartinglineLl=(LinearLayout)convertView.findViewById(R.id.center_partingline_ll);
 				convertView.setTag(holder1);
 				break;
 			case TYPE_2:
@@ -155,9 +156,10 @@ public class centerAdapter extends BaseAdapter {
 		Bitmap bitmapround=BitmapUtil.toRoundBitmap(bitmap);
 		BitmapDrawable bd=new BitmapDrawable(bitmapround);
 		holder1.centerUserHeadIv.setBackgroundDrawable(bd);
-		listener1 listen1 = new listener1(holder1, position);
-		holder1.centerUpdateinfoTv.setOnClickListener(listen1);
+	
+		holder1.centerUpdateinfoTv.setVisibility(View.GONE);
 		
+		holder1.centerPartinglineLl.setVisibility(View.VISIBLE);
 	}
 
 	/**
@@ -244,6 +246,7 @@ public class centerAdapter extends BaseAdapter {
 	class NewViewHolder1 {
 		private ImageView centerUserHeadIv;//用户头像
 		private TextView centerUpdateinfoTv;//修改个人信息
+		private LinearLayout  centerPartinglineLl;//帖子和个人信息的分割线
 	}
 
 	/**

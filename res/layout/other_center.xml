@@ -7,7 +7,7 @@
 
     <include layout="@layout/top_bar_back" />
      <com.feytuo.bageshuo.widget.XListView
-        android:id="@+id/center_xlv"
+        android:id="@+id/other_center_xlv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@color/huatiandperson"
