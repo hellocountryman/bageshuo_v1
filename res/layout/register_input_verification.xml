@@ -8,7 +8,7 @@
     <include layout="@layout/top_bar_back" />
 
     <TextView
-        android:id="@+id/register_verigication_hint"
+        android:id="@+id/register_verigication_hint_tv"
         style="@style/text_hint"
         android:layout_width="match_parent"
         android:layout_height="29dip"
@@ -70,7 +70,7 @@
             android:layout_height="60dip" >
 
             <EditText
-                android:id="@+id/register_verivation_word_et"
+                android:id="@+id/register_verivation_password_et"
                 style="@style/edit_text_hint"
                 android:layout_width="match_parent"
                 android:layout_height="60dip"

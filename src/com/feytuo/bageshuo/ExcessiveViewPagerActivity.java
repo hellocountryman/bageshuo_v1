@@ -137,16 +137,16 @@ public class ExcessiveViewPagerActivity extends Activity implements OnClickListe
 	}
 	
 	public void userRegisterBtn(View v) {
-
 		Intent intentRegister = new Intent();
 		intentRegister.setClass(this, UserRegistInputPhone.class);
 		startActivity(intentRegister);
+		finish();
 	}
 
 	public void userLoginBtn(View v) {
-
 		Intent intentLogin = new Intent();
 		intentLogin.setClass(this, UserLogin.class);
 		startActivity(intentLogin);
+		finish();
 	}
 }

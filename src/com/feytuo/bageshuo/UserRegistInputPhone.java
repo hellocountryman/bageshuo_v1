@@ -3,6 +3,7 @@ package com.feytuo.bageshuo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,15 +29,12 @@ public class UserRegistInputPhone extends Activity {
 		setContentView(R.layout.register_input_phone);
 
 		initView();
-
-		registerInputPhoneEt = (EditText) findViewById(R.id.register_input_phone_et);
 	}
 
 	public void initView() {
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
 		titleTv.setText("注册");// 设置标题；
-
-		
+		registerInputPhoneEt = (EditText) findViewById(R.id.register_input_phone_et);
 	}
 
 	public void onBackBtn(View v) {
@@ -44,14 +42,21 @@ public class UserRegistInputPhone extends Activity {
 	}
 
 	public void registerInputPhoneNextBtn(View v) {
-		if ("".equals(registerInputPhoneEt.getText().toString())) {
+		String phoneNumber = registerInputPhoneEt.getText().toString();
+		if (TextUtils.isEmpty(phoneNumber)) {
 			Toast.makeText(this, "号码不能为空！", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		if(phoneNumber.getBytes().length != 11){
+			Toast.makeText(this, "号码不够11位", Toast.LENGTH_SHORT).show();
 			return;
 		}
 		
 		Intent intent = new Intent();
 		intent.setClass(this, UserRegistVerification.class);
+		intent.putExtra("phone_number", phoneNumber);
 		startActivity(intent);
+		finish();
 	}
 
 	
