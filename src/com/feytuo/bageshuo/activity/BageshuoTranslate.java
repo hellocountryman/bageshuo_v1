@@ -44,15 +44,13 @@ public class BageshuoTranslate extends Activity {
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_return_tv);
 		titleTv.setText("八哥一下");// 设置标题；
 		bageshuoSpinner = (Spinner) findViewById(R.id.bageshuo_spinner);
+		bageshuoSpinner.setBackgroundColor(getResources().getColor(R.color.white));
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_item,R.id.spinner_item_tv,cityInfo);
 
 		// 为spinner添加适配器
 		bageshuoSpinner.setAdapter(adapter);
-//		bageshuoSpinner.setPrompt("只有这三天");//设置标题
 		bageshuoSpinner.setSelection(2,true);  //设置默认选中项，此处为默认选中第3个值
-		// 为bageshuoSpinner绑定监听器
 		bageshuoSpinner.setOnItemSelectedListener(new SpinnerListener());
-
 	}
 
 	// 该监听器用于监听用户多spinner的操作

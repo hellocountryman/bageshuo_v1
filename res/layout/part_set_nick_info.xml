@@ -4,10 +4,9 @@
     android:layout_height="60dip"
     android:background="@color/white"
     android:clickable="true"
-      android:focusable="true"
+    android:focusable="true"
     android:focusableInTouchMode="true"
     android:gravity="center_vertical"
-    android:onClick="settingNickLl"
     android:orientation="horizontal" >
 
     <TextView
@@ -15,17 +14,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dip"
+        android:focusable="false"
         android:text="@string/nick" />
 
     <EditText
         android:id="@+id/user_set_nick_et"
+        style="@style/text_black"
         android:layout_width="0dip"
         android:layout_height="match_parent"
+        android:layout_marginLeft="25dip"
         android:layout_weight="1"
-         android:layout_marginLeft="25dip"
-        android:ems="10"
         android:background="@null"
-        style="@style/text_black"
+        android:ems="10"
         android:inputType="textPersonName" >
     </EditText>
 

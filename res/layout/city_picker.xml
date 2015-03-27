@@ -14,12 +14,13 @@
         android:layout_marginRight="1dp"
         android:layout_weight="1"
         su:itemNumber="3"
-        su:lineColor="#ffff6000"
+        su:lineColor="@color/huatiandperson"
         su:maskHight="32dp"
         su:noEmpty="true"
         su:normalTextColor="#777"
         su:normalTextSize="14sp"
-        su:selecredTextSize="22sp"
+        su:selecredTextColor="@color/bluetext"
+        su:selecredTextSize="18sp"
         su:unitHight="50dp" />
 
     <com.feytuo.bageshuo.city.ScrollerNumberPicker
@@ -31,13 +32,13 @@
         android:layout_marginRight="1dp"
         android:layout_weight="1"
         su:itemNumber="3"
-        su:lineColor="#ffff6000"
+        su:lineColor="@color/huatiandperson"
         su:maskHight="32dp"
         su:noEmpty="true"
         su:normalTextColor="#777"
         su:normalTextSize="14sp"
-        su:selecredTextColor="#ff000000"
-        su:selecredTextSize="22sp"
+        su:selecredTextColor="@color/bluetext"
+        su:selecredTextSize="18sp"
         su:unitHight="50dp" />
 
 </LinearLayout>

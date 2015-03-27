@@ -18,7 +18,6 @@
         android:background="@drawable/input_phone_bg"
         android:ems="10"
         android:hint="@string/intput_phone"
-        
         android:inputType="phone"
         android:paddingLeft="40dip" >
     </EditText>
@@ -29,19 +28,20 @@
         android:layout_marginLeft="28dip"
         android:layout_marginRight="28dip"
         android:layout_marginTop="27dip"
-        android:background="@drawable/next_bg"
+        android:background="@drawable/bt_press"
         android:onClick="registerInputPhoneNextBtn"
         android:text="@string/next"
-        android:textColor="@color/index_color"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <TextView
-        style="@style/text_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="28dip"
-        android:layout_marginRight="28dip"
-        android:layout_marginTop="28dip"
-        android:text="@string/phone_hint" />
+        android:layout_marginLeft="8dip"
+        android:layout_marginRight="8dip"
+        android:layout_marginTop="16dip"
+        android:text="@string/phone_hint"
+        android:textColor="@color/edit_hint"
+        android:textSize="12sp" />
 
 </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:background="@color/white"
+    android:background="@color/content_bg"
     android:orientation="vertical"
     android:visibility="gone" >
 
@@ -16,17 +16,16 @@
         android:onClick="setSelectImgfromcameraBtn"
         android:text="@string/camera" />
 
-    <include layout="@layout/partingline_bottom_part" />
-
     <Button
         style="@style/set_sex_head_btn"
+        android:layout_marginTop="8.0dip"
         android:onClick="setSelectImgfromphoneBtn"
         android:text="@string/phone" />
 
-    <include layout="@layout/partingline_bottom_part" />
-
     <Button
         style="@style/set_sex_head_btn"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginTop="8.0dip"
         android:onClick="setSelectImgCancelBtn"
         android:text="@string/quxiao" />
 

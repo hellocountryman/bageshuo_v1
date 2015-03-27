@@ -2,17 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bageshuosearch"
+    android:background="@drawable/bageshuo_head_bg"
     android:gravity="bottom"
     android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/bageshuo_search_iv"
+    <LinearLayout
+      
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8.0dip"
-        android:layout_marginLeft="8.0dip"
-        android:layout_marginBottom="10.0dip"
-        android:background="@drawable/bageshuo_search_bar" />
+        android:layout_height="50dip"
+        android:layout_marginBottom="32.0dip"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="16.0dip"
+        android:background="@drawable/fr_search_text"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="23dip"
+            android:layout_height="23dip"
+            android:layout_marginLeft="16dip"
+            android:background="@drawable/ic_bageshuo_write" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="46dip"
+            android:layout_marginLeft="19dip"
+            android:background="@color/partinglinevertical" />
+
+        <TextView
+              android:id="@+id/bageshuo_search_tv"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/inputsearchtext"
+            android:textColor="@color/edittext"
+            android:textSize="15sp" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -20,7 +20,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -28,9 +32,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.drawable;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.adapter.InvitationDetailsAdapter;
 import com.feytuo.bageshuo.util.GetSystemDateTime;
 import com.feytuo.bageshuo.util.SDcardTools;
@@ -48,8 +49,7 @@ import com.feytuo.bageshuo.widget.XListView.IXListViewListener;
  * @author tangpeng
  * 
  */
-public class InvitationDetails extends Activity implements
-		IXListViewListener {
+public class InvitationDetails extends Activity implements IXListViewListener {
 
 	private XListView invitationDetailsXlv;
 	private Handler mHandler;
@@ -59,7 +59,8 @@ public class InvitationDetails extends Activity implements
 			"tangxiao", "朋友跟我哭诉，说因为太穷而经常失恋", "朋友跟我哭诉，说因为太穷而经常失恋", "tangxiao" };
 	private int[] arrayuserhead = { R.drawable.lunbo, R.drawable.lunbo,
 			R.drawable.lunbo, R.drawable.lunbo, R.drawable.lunbo };
-
+	
+	private LinearLayout partCommentLl;//评论模块
 	private Button commentAddBtn;// 点击添加录音的按钮
 	private EditText commentTextEdit;// 输入评论的文字
 	private Button commentSendBtn;// 发送评论按钮
@@ -117,6 +118,7 @@ public class InvitationDetails extends Activity implements
 		commentTextEdit = (EditText) findViewById(R.id.comment_text_edit);
 		commentSendBtn = (Button) findViewById(R.id.comment_send_btn);
 		commentRecordLl = (LinearLayout) findViewById(R.id.comment_record_ll);
+		partCommentLl=(LinearLayout) findViewById(R.id.part_comment_ll);
 		commentDeleteBtn = (Button) findViewById(R.id.comment_delete_btn);
 		commentRecordBtn = (Button) findViewById(R.id.comment_record_btn);
 		commentAuditionBtn = (Button) findViewById(R.id.comment_audition_btn);
@@ -137,7 +139,7 @@ public class InvitationDetails extends Activity implements
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
-			
+
 			case R.id.comment_text_edit:
 				commentRecordLl.setVisibility(View.GONE);
 
@@ -146,10 +148,10 @@ public class InvitationDetails extends Activity implements
 				softkeyboard();
 				if (commentRecordLl.getVisibility() == View.GONE) {
 					commentRecordLl.setVisibility(View.VISIBLE);
+//					showcomment();
 				} else {
 					commentRecordLl.setVisibility(View.GONE);
 				}
-				
 
 				break;
 			case R.id.comment_delete_btn:
@@ -161,7 +163,6 @@ public class InvitationDetails extends Activity implements
 				break;
 			case R.id.comment_audition_btn:
 				palyAudion();
-
 				break;
 
 			default:
@@ -211,6 +212,21 @@ public class InvitationDetails extends Activity implements
 		invitationDetailsXlv.setAdapter(adapter);
 		invitationDetailsXlv.setXListViewListener(this);
 		mHandler = new Handler();
+
+		invitationDetailsXlv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+			switch (view.getId()) {
+		
+			default:
+				commentRecordLl.setVisibility(View.GONE);
+				break;
+			}
+			}
+			
+		});
 	}
 
 	private ArrayList<Map<String, Object>> getData() {
@@ -332,13 +348,13 @@ public class InvitationDetails extends Activity implements
 	private void palyAudion() {
 		// mp.setDataSource(filePath + "/" + fileAudioNameList);
 		try {
-			
+
 			mp.reset();
 			mp.setDataSource(filePath + "/" + fileAudioName);
 			mp.prepare();
 			mp.seekTo(0);
 			mp.start();
-		
+
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -391,8 +407,7 @@ public class InvitationDetails extends Activity implements
 			super.handleMessage(msg);
 		}
 	};
-	
-	
+
 	/**
 	 * 隐藏输入法
 	 */
@@ -411,7 +426,21 @@ public class InvitationDetails extends Activity implements
 		return false;
 	}
 
+	/**
+	 * 动画，显评论
+	 */
+	public  void showcomment()
+	{
+		Animation animation = AnimationUtils.loadAnimation(
+				InvitationDetails.this, R.anim.translate_record_show);
+		partCommentLl.startAnimation(animation);
+	}
+
+	
 	public void onBackBtn(View v) {
 		finish();
 	}
+	
+	
+	
 }

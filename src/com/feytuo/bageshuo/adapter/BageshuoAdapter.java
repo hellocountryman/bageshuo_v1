@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.feytuo.bageshuo.R;
 import com.feytuo.bageshuo.activity.BageshuoTranslate;
-import com.feytuo.bageshuo.activity.HomeDetailsIntroduce;
 import com.feytuo.bageshuo.activity.InvitationDetails;
 import com.feytuo.bageshuo.util.ToolAnimation;
 
@@ -90,8 +89,8 @@ public class BageshuoAdapter extends BaseAdapter {
 				convertView = inflater
 						.inflate(R.layout.bageshuo_top_part, null);// 同样是将布局转化成view
 				holder1 = new NewViewHolder1();
-				holder1.bageshuoSearchIv = (ImageView) convertView
-						.findViewById(R.id.bageshuo_search_iv);
+				holder1.bageshuoSearchTv = (TextView) convertView
+						.findViewById(R.id.bageshuo_search_tv);
 
 				convertView.setTag(holder1);
 				break;
@@ -152,7 +151,7 @@ public class BageshuoAdapter extends BaseAdapter {
 	private void dealtype1(int position) {
 
 		listener1 listen1 = new listener1(holder1, position);
-		holder1.bageshuoSearchIv.setOnClickListener(listen1);
+		holder1.bageshuoSearchTv.setOnClickListener(listen1);
 
 	}
 
@@ -243,7 +242,7 @@ public class BageshuoAdapter extends BaseAdapter {
 	 */
 	class NewViewHolder1 {
 
-		private ImageView bageshuoSearchIv;// 搜索的按钮
+		private TextView bageshuoSearchTv;// 搜索的按钮
 
 	}
 

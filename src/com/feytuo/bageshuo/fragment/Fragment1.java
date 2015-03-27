@@ -25,9 +25,9 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.activity.ExcessiveViewPager;
 import com.feytuo.bageshuo.activity.HomePersonSearch;
 import com.feytuo.bageshuo.activity.HotHome;
-import com.feytuo.bageshuo.activity.MyCenterViewpager;
 import com.feytuo.bageshuo.activity.PersonsList;
 import com.feytuo.bageshuo.activity.TopicList;
 import com.feytuo.bageshuo.adapter.GridviewAdapter;
@@ -120,12 +120,11 @@ public class Fragment1 extends Fragment {
 				intent.setClass(getActivity(), PersonsList.class);
 				break;
 			case R.id.home_user_head:
-//				intent.setClass(getActivity(), ExcessiveViewPager.class);
-				intent.setClass(getActivity(), MyCenterViewpager.class);
+				intent.setClass(getActivity(), ExcessiveViewPager.class);
+//				intent.setClass(getActivity(), MyCenterViewpager.class);
 				break;
 			case R.id.home_search_iv:
 				intent.setClass(getActivity(), HomePersonSearch.class);
-//				intent.setClass(getActivity(), MyCenterViewpager.class);
 				break;
 
 			default:

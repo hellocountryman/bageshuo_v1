@@ -10,26 +10,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8.0dip"
+        android:layout_margin="16.0dip"
         android:background="@drawable/ic_more_main"
         android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal" >
 
             <Spinner
                 android:id="@+id/bageshuo_spinner"
                 android:layout_width="0.0dip"
                 android:layout_height="50.0dip"
+                android:layout_margin="8.0dip"
                 android:layout_weight="3"
-                 android:layout_margin="8.0dip"
                 android:background="@color/white"
+                android:dropDownVerticalOffset="20dp"
+                android:popupBackground="@color/white"
+                android:requiresFadingEdge="none"
+                android:spinnerMode="dropdown"
                 android:textColor="@color/tiezi"
                 android:textSize="18sp" />
 
-            <include layout="@layout/partingline_vertical_part" />
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="7dp"
+                android:layout_marginRight="16.0dip"
+                android:background="@drawable/ic_ank"
+                android:contentDescription="@string/app_name" />
+
+            <include layout="@layout/partingline_vertical_one_part" />
 
             <Button
                 android:layout_width="0.0dip"
@@ -47,20 +59,33 @@
         <EditText
             android:id="@+id/publish_text_et"
             android:layout_width="match_parent"
-            android:layout_height="150dip"
+            android:layout_height="120dip"
             android:layout_marginLeft="8.0dip"
             android:layout_marginRight="8.0dip"
-            android:background="@drawable/corners_storke_weibo"
+            android:background="@drawable/corners_storke_edit"
             android:ems="10"
             android:gravity="top"
             android:hint="@string/saywhat"
             android:inputType="textMultiLine"
             android:padding="16.0dip"
-            android:textColorHint="#656d78"
+            android:textColor="@color/edittext"
+            android:textColorHint="@color/edittext"
             android:textSize="16sp" >
 
             <requestFocus />
         </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:background="@drawable/ic_launcher" />
     </LinearLayout>
 
 </LinearLayout>

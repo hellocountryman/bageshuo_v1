@@ -3,12 +3,6 @@ package com.feytuo.bageshuo.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.drawable;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
-import com.feytuo.bageshuo.adapter.ExcessiveViewPagerAdapter;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.adapter.ExcessiveViewPagerAdapter;
 
 /**
  * 轮播页面登录注册
@@ -38,9 +34,9 @@ public class ExcessiveViewPager extends Activity implements OnClickListener,
 	private List<View> views;
 
 	// 引导图片资源
-	private static final int[] pics = { R.drawable.lunbo,
-			R.drawable.lunbo, R.drawable.lunbo,
-			R.drawable.lunbo };
+	private static final int[] pics = { R.drawable.abg1,
+			R.drawable.abg1, R.drawable.abg1,
+			R.drawable.abg1 };
 
 	// 底部小店图片
 	private ImageView[] dots;

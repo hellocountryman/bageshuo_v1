@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_back"
-        android:drawablePadding="8.0dip"
         android:layout_centerVertical="true"
         android:onClick="onBackBtn"
         android:text="@string/returnstring"
         android:clickable="true"
+        android:drawablePadding="8.0dip"
         android:layout_marginLeft="8.0dip"
         android:textColor="@color/white" />
 
