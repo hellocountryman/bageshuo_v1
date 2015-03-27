@@ -1,4 +1,8 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
+
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +24,7 @@ import android.widget.TextView;
  * 
  * 
  */
-public class PublishTwoActivity extends Activity {
+public class PublishSecond extends Activity {
 	private EditText publish_text_et ;
 	private TextView  publish_surplus_tv;
 

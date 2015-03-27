@@ -1,4 +1,8 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
+
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;

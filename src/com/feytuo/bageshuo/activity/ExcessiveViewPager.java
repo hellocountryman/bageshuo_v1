@@ -1,8 +1,12 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.drawable;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.adapter.ExcessiveViewPagerAdapter;
 
 import android.app.Activity;
@@ -26,7 +30,7 @@ import android.widget.LinearLayout;
  * @author tangpeng
  * 
  */
-public class ExcessiveViewPagerActivity extends Activity implements OnClickListener,
+public class ExcessiveViewPager extends Activity implements OnClickListener,
 		OnPageChangeListener {
 
 	private ViewPager vp;

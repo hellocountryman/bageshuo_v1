@@ -1,4 +1,8 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
+
+import com.feytuo.bageshuo.App;
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,7 +22,7 @@ public class Welcome extends Activity{
 		if(uId > 0){
 			intent.setClass(this, MainActivity.class);
 		}else{
-			intent.setClass(this, ExcessiveViewPagerActivity.class);
+			intent.setClass(this, ExcessiveViewPager.class);
 		}
 		startActivity(intent);
 		finish();

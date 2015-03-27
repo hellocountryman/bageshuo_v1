@@ -4,8 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.feytuo.bageshuo.global.Global;
-
 public class App extends Application{
 
 	private SharedPreferences sp;

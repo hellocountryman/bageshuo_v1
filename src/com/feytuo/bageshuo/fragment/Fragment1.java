@@ -24,13 +24,12 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.feytuo.bageshuo.ExcessiveViewPagerActivity;
-import com.feytuo.bageshuo.HomePersonSearch;
-import com.feytuo.bageshuo.HotHomeActivity;
-import com.feytuo.bageshuo.MyCenterViewpager;
-import com.feytuo.bageshuo.PersonsList;
 import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.TopicList;
+import com.feytuo.bageshuo.activity.HomePersonSearch;
+import com.feytuo.bageshuo.activity.HotHome;
+import com.feytuo.bageshuo.activity.MyCenterViewpager;
+import com.feytuo.bageshuo.activity.PersonsList;
+import com.feytuo.bageshuo.activity.TopicList;
 import com.feytuo.bageshuo.adapter.GridviewAdapter;
 import com.feytuo.bageshuo.widget.HomeGridView;
 
@@ -112,7 +111,7 @@ public class Fragment1 extends Fragment {
 			Intent intent = new Intent();
 			switch (v.getId()) {
 			case R.id.home_hothome_ll:
-				intent.setClass(getActivity(), HotHomeActivity.class);
+				intent.setClass(getActivity(), HotHome.class);
 				break;
 			case R.id.home_topic_part_ll:
 				intent.setClass(getActivity(), TopicList.class);
@@ -121,7 +120,7 @@ public class Fragment1 extends Fragment {
 				intent.setClass(getActivity(), PersonsList.class);
 				break;
 			case R.id.home_user_head:
-//				intent.setClass(getActivity(), ExcessiveViewPagerActivity.class);
+//				intent.setClass(getActivity(), ExcessiveViewPager.class);
 				intent.setClass(getActivity(), MyCenterViewpager.class);
 				break;
 			case R.id.home_search_iv:

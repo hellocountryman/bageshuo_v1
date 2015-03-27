@@ -18,8 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.feytuo.bageshuo.InvitationDetailsActivity;
 import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.activity.InvitationDetails;
 import com.feytuo.bageshuo.util.BitmapUtil;
 import com.feytuo.bageshuo.util.ToolAnimation;
 
@@ -141,7 +141,7 @@ public class MyCenterAdapter extends BaseAdapter {
 				break;
 			default:
 				Intent intent = new Intent();
-				intent.setClass(context, InvitationDetailsActivity.class);
+				intent.setClass(context, InvitationDetails.class);
 				context.startActivity(intent);
 
 				break;

@@ -15,8 +15,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.feytuo.bageshuo.HomeDetailsActivity;
 import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.activity.HomeDetails;
 /**
  * 自定义GridviewAdapter ，方便随时更新新的消息
  * 
@@ -102,7 +102,7 @@ public class GridviewAdapter extends BaseAdapter {
 			default:
 				Toast.makeText(context, "进入社区详情",Toast.LENGTH_LONG).show();
 				Intent intent=new Intent();
-				intent.setClass(context, HomeDetailsActivity.class);
+				intent.setClass(context, HomeDetails.class);
 				context.startActivity(intent);
 				break;
 			}

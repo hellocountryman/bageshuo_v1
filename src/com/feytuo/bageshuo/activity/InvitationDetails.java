@@ -1,4 +1,4 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +27,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.drawable;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.adapter.InvitationDetailsAdapter;
 import com.feytuo.bageshuo.util.GetSystemDateTime;
 import com.feytuo.bageshuo.util.SDcardTools;
@@ -44,7 +48,7 @@ import com.feytuo.bageshuo.widget.XListView.IXListViewListener;
  * @author tangpeng
  * 
  */
-public class InvitationDetailsActivity extends Activity implements
+public class InvitationDetails extends Activity implements
 		IXListViewListener {
 
 	private XListView invitationDetailsXlv;
@@ -90,7 +94,7 @@ public class InvitationDetailsActivity extends Activity implements
 
 	private void initviewrecord() {
 		if (!SDcardTools.isHaveSDcard()) {
-			Toast.makeText(InvitationDetailsActivity.this, "请插入SD卡以便存储录音",
+			Toast.makeText(InvitationDetails.this, "请插入SD卡以便存储录音",
 					Toast.LENGTH_LONG).show();
 			return;
 		}
@@ -201,7 +205,7 @@ public class InvitationDetailsActivity extends Activity implements
 		invitationDetailsXlv = (XListView) findViewById(R.id.invitation_details_xlv);// 你这个listview是在这个layout里面
 		invitationDetailsXlv.setPullLoadEnable(true);// 设置让它上拉，FALSE为不让上拉，便不加载更多数据
 
-		adapter = new InvitationDetailsAdapter(InvitationDetailsActivity.this,
+		adapter = new InvitationDetailsAdapter(InvitationDetails.this,
 				getData());
 
 		invitationDetailsXlv.setAdapter(adapter);
@@ -394,7 +398,7 @@ public class InvitationDetailsActivity extends Activity implements
 	 */
 	public void softkeyboard() {
 		((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
-				.hideSoftInputFromWindow(InvitationDetailsActivity.this
+				.hideSoftInputFromWindow(InvitationDetails.this
 						.getCurrentFocus().getWindowToken(),
 						InputMethodManager.HIDE_NOT_ALWAYS);
 	}

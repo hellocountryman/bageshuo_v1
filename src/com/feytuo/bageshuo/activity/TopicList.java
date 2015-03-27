@@ -1,12 +1,16 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
+
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
+import com.feytuo.bageshuo.R.string;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 /**
- * 乡里乡亲的模块
+ * 话题列表
  * 
  * @version v1.0
  * 
@@ -15,20 +19,20 @@ import android.widget.TextView;
  * @author tangpeng
  * 
  */
-public class UpdateInfo extends Activity {
+public class TopicList extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.update_info);
+		setContentView(R.layout.activity_topic_list);
 		initView();
 	}
 
 	private void initView() {
 
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
-		titleTv.setText("修改信息");// 设置标题；
+		titleTv.setText(R.string.topiclist);// 设置标题；
 
 	}
 

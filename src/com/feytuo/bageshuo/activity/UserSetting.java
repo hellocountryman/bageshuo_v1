@@ -1,4 +1,4 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -22,6 +22,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.city.CityPicker;
 import com.feytuo.bageshuo.util.BitmapUtil;
 

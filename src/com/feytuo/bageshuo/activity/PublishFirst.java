@@ -1,4 +1,10 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
+
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.anim;
+import com.feytuo.bageshuo.R.drawable;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,7 +27,7 @@ import android.widget.TextView;
  * 
  * 
  */
-public class PublishActivity extends Activity {
+public class PublishFirst extends Activity {
 	private ImageView publishRecordIv;// 录音的按钮
 	private ImageView publishRotateIv;// 按住录音是出现的动画
 	private ImageView PublishHeadphoneIv;// 录完音后显示的耳机图标
@@ -88,7 +94,7 @@ public class PublishActivity extends Activity {
 
 	public void publishEditTextBtn(View v) {
 		Intent intent = new Intent();
-		intent.setClass(this, PublishTwoActivity.class);
+		intent.setClass(this, PublishSecond.class);
 		startActivity(intent);
 	}
 

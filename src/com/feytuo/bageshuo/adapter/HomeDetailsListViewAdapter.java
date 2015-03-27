@@ -14,10 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.feytuo.bageshuo.HomeDetailsIntroduce;
-import com.feytuo.bageshuo.InvitationDetailsActivity;
-import com.feytuo.bageshuo.OtherCenter;
 import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.activity.HomeDetailsIntroduce;
+import com.feytuo.bageshuo.activity.InvitationDetails;
+import com.feytuo.bageshuo.activity.OtherCenter;
 import com.feytuo.bageshuo.util.ToolAnimation;
 /**
  * 社区详情的适配器，注意有2段布局
@@ -229,7 +229,7 @@ public class HomeDetailsListViewAdapter extends BaseAdapter {
 				break;
 			default:
 				Intent intent = new Intent();
-				intent.setClass(context, InvitationDetailsActivity.class);
+				intent.setClass(context, InvitationDetails.class);
 				context.startActivity(intent);
 
 				break;

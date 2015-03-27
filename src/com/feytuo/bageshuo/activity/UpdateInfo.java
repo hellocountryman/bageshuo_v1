@@ -1,4 +1,8 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
+
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,20 +19,20 @@ import android.widget.TextView;
  * @author tangpeng
  * 
  */
-public class PersonsList extends Activity {
+public class UpdateInfo extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_persons_list);
+		setContentView(R.layout.update_info);
 		initView();
 	}
 
 	private void initView() {
 
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
-		titleTv.setText(R.string.personslist);// 设置标题；
+		titleTv.setText("修改信息");// 设置标题；
 
 	}
 

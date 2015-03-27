@@ -1,4 +1,4 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,7 +19,11 @@ import android.widget.Toast;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
-import com.feytuo.bageshuo.global.Global;
+import com.feytuo.bageshuo.App;
+import com.feytuo.bageshuo.Global;
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.util.AppInfoUtil;
 import com.feytuo.bageshuo.util.SyncHttpTask;
 import com.feytuo.bageshuo.util.SyncHttpTask.CallBack;

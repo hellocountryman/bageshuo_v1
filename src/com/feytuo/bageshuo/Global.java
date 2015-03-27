@@ -1,4 +1,4 @@
-package com.feytuo.bageshuo.global;
+package com.feytuo.bageshuo;
 
 public interface Global {
 

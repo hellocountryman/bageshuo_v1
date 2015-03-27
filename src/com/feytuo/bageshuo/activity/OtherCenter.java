@@ -1,68 +1,52 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.feytuo.bageshuo.adapter.HomeDetailsListViewAdapter;
-import com.feytuo.bageshuo.adapter.InvitationDetailsAdapter;
-import com.feytuo.bageshuo.widget.HomeDetailsListView;
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.drawable;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
+import com.feytuo.bageshuo.adapter.OtherCenterAdapter;
 import com.feytuo.bageshuo.widget.XListView;
 import com.feytuo.bageshuo.widget.XListView.IXListViewListener;
 
-/**
- * 社区详情的模块
- * 
- * @date 2015-03-16
- * 
- * @version v1.0
- * 
- * @author tangpeng
- * 
- */
-public class HomeDetailsActivity extends Activity implements IXListViewListener {
-
-	private XListView HomeDetailsXlv;
+public class OtherCenter extends Activity implements IXListViewListener {
+	private XListView otherCenterXlv;
 	private Handler mHandler;
 	private ArrayList<Map<String, Object>> dlist;
-	private HomeDetailsListViewAdapter adapter;
+	private OtherCenterAdapter adapter;
 	private String[] arraytitle = { "从女性的角度来看，一件喜欢的商品打折了从女性的角度来看从女性的角度来看",
 			"tangxiao", "朋友跟我哭诉，说因为太穷而经常失恋", "朋友跟我哭诉，说因为太穷而经常失恋", "tangxiao" };
 	private int[] arrayuserhead = { R.drawable.lunbo, R.drawable.lunbo,
 			R.drawable.lunbo, R.drawable.lunbo, R.drawable.lunbo };
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home_details);
-
+		setContentView(R.layout.other_center);
+		
 		initView();
 	}
 
 	private void initView() {
-		TextView titleTv = (TextView) findViewById(R.id.top_bar_title_publish_tv);
-		titleTv.setText("社区");// 设置标题；
+		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
+		titleTv.setText("个人中心");// 设置标题；
 
-		HomeDetailsXlv = (XListView) findViewById(R.id.home_details_xlv);// 你这个listview是在这个layout里面
-		HomeDetailsXlv.setPullLoadEnable(true);// 设置让它上拉，FALSE为不让上拉，便不加载更多数据
-
-		adapter = new HomeDetailsListViewAdapter(HomeDetailsActivity.this,
-				getData());
-
-		HomeDetailsXlv.setAdapter(adapter);
-		HomeDetailsXlv.setXListViewListener(this);
+		otherCenterXlv = (XListView) findViewById(R.id.other_center_xlv);// 你这个listview是在这个layout里面
+		otherCenterXlv.setPullRefreshEnable(false);// 不让他刷新
+		adapter = new OtherCenterAdapter(OtherCenter.this,getData());
+		otherCenterXlv.setAdapter(adapter);
+		otherCenterXlv.setXListViewListener(this);
 		mHandler = new Handler();
 	}
 
@@ -79,9 +63,9 @@ public class HomeDetailsActivity extends Activity implements IXListViewListener 
 
 	/** 停止刷新， */
 	private void onLoad() {
-		HomeDetailsXlv.stopRefresh();
-		HomeDetailsXlv.stopLoadMore();
-		HomeDetailsXlv.setRefreshTime("刚刚");
+		otherCenterXlv.stopRefresh();
+		otherCenterXlv.stopLoadMore();
+		otherCenterXlv.setRefreshTime("刚刚");
 	}
 
 	// 刷新
@@ -92,7 +76,7 @@ public class HomeDetailsActivity extends Activity implements IXListViewListener 
 			@Override
 			public void run() {
 				getData();
-				HomeDetailsXlv.setAdapter(adapter);
+				otherCenterXlv.setAdapter(adapter);
 				onLoad();
 			}
 		}, 2000);
@@ -118,15 +102,10 @@ public class HomeDetailsActivity extends Activity implements IXListViewListener 
 		}
 		return false;
 	}
+	
 
-	public void publishBackBtn(View v) {
+	public void onBackBtn(View v)
+	{
 		finish();
 	}
-
-	public void publishbtn(View v) {
-		Intent intent = new Intent();
-		intent.setClass(this, PublishActivity.class);
-		startActivity(intent);
-	}
-
 }

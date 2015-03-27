@@ -5,7 +5,8 @@ import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.widget.ImageView;
 import android.widget.Toast;
-import com.feytuo.bageshuo.MainActivity;
+
+import com.feytuo.bageshuo.activity.MainActivity;
 
 public class ToolAnimation {
 	

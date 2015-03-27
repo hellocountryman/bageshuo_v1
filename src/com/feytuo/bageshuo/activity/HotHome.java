@@ -1,9 +1,13 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -27,7 +31,7 @@ import android.widget.Toast;
  * @author tangpeng
  * 
  */
-public class HotHomeActivity extends Activity implements OnItemClickListener{
+public class HotHome extends Activity implements OnItemClickListener{
 	private static final String TAG="HOTHOMEACTIVITY";
 	private GridView hotHomeGv;
 	private List<Map<String, Object>> hothomeDataList;
@@ -70,7 +74,7 @@ public class HotHomeActivity extends Activity implements OnItemClickListener{
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 			Toast.makeText(
-					HotHomeActivity.this,
+					HotHome.this,
 					"你点击了"
 							+ hothomeDataList.get(position).get("hothometitle")
 									.toString(), Toast.LENGTH_LONG).show();

@@ -23,7 +23,7 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 
-import com.feytuo.bageshuo.global.Global;
+import com.feytuo.bageshuo.Global;
 
 import android.util.Log;
 

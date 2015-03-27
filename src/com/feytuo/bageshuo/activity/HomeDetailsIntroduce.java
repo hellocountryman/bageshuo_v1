@@ -1,4 +1,4 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -8,6 +8,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
+import com.feytuo.bageshuo.R.style;
 import com.feytuo.bageshuo.widget.MyDialog;
 
 /**

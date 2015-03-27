@@ -29,7 +29,11 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
-            android:name="com.feytuo.bageshuo.Welcome"
+            android:name="com.feytuo.bageshuo.activity.Welcome"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.feytuo.bageshuo.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,90 +42,81 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.MainActivity"
+            android:name="com.feytuo.bageshuo.activity.ExcessiveViewPager"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.HotHomeActivity"
+            android:name="com.feytuo.bageshuo.activity.HotHome"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.HomeDetailsActivity"
+            android:name="com.feytuo.bageshuo.activity.HomeDetails"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.HomeDetailsIntroduce"
+            android:name="com.feytuo.bageshuo.activity.HomePersonSearch"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.InvitationDetailsActivity"
+            android:name="com.feytuo.bageshuo.activity.HomeDetailsIntroduce"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.feytuo.bageshuo.activity.InvitationDetails"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.TopicList"
+            android:name="com.feytuo.bageshuo.activity.TopicList"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.PersonsList"
+            android:name="com.feytuo.bageshuo.activity.PersonsList"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.PublishActivity"
+            android:name="com.feytuo.bageshuo.activity.PublishFirst"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.PublishTwoActivity"
-            android:label="@string/app_name"
-            android:windowSoftInputMode="stateVisible|adjustPan" >
-        </activity>
-        <activity
-            android:name="com.feytuo.bageshuo.UserRegistInputPhone"
+            android:name="com.feytuo.bageshuo.activity.PublishSecond"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.ExcessiveViewPagerActivity"
+            android:name="com.feytuo.bageshuo.activity.UserRegistInputPhone"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.UserRegistVerification"
+            android:name="com.feytuo.bageshuo.activity.UserRegistVerification"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.UserSetting"
+            android:name="com.feytuo.bageshuo.activity.UserSetting"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.UserLogin"
+            android:name="com.feytuo.bageshuo.activity.AppSetting"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.BageshuoTranslate"
+            android:name="com.feytuo.bageshuo.activity.UserLogin"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.MyCenter"
+            android:name="com.feytuo.bageshuo.activity.BageshuoTranslate"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.OtherCenter"
+            android:name="com.feytuo.bageshuo.activity.MyCenterViewpager"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.MyCenterViewpager"
+            android:name="com.feytuo.bageshuo.activity.OtherCenter"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.feytuo.bageshuo.Setting"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name="com.feytuo.bageshuo.UpdateInfo"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name="com.feytuo.bageshuo.HomePersonSearch"
+            android:name="com.feytuo.bageshuo.activity.UpdateInfo"
             android:label="@string/app_name" >
         </activity>
     </application>

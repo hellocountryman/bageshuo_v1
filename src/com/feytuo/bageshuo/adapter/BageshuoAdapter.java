@@ -15,10 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.feytuo.bageshuo.BageshuoTranslate;
-import com.feytuo.bageshuo.HomeDetailsIntroduce;
-import com.feytuo.bageshuo.InvitationDetailsActivity;
 import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.activity.BageshuoTranslate;
+import com.feytuo.bageshuo.activity.HomeDetailsIntroduce;
+import com.feytuo.bageshuo.activity.InvitationDetails;
 import com.feytuo.bageshuo.util.ToolAnimation;
 
 /**
@@ -229,7 +229,7 @@ public class BageshuoAdapter extends BaseAdapter {
 				break;
 			default:
 				Intent intent = new Intent();
-				intent.setClass(context, InvitationDetailsActivity.class);
+				intent.setClass(context, InvitationDetails.class);
 				context.startActivity(intent);
 
 				break;

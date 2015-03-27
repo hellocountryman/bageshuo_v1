@@ -1,4 +1,4 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import org.w3c.dom.Text;
 
@@ -24,6 +24,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.R.color;
+import com.feytuo.bageshuo.R.drawable;
+import com.feytuo.bageshuo.R.id;
+import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.fragment.CenterOneFragment;
 import com.feytuo.bageshuo.fragment.CenterTwoFragment;
 import com.feytuo.bageshuo.util.BitmapUtil;
@@ -246,7 +251,7 @@ public class MyCenterViewpager extends FragmentActivity {
 	public void setting_ok(View v) {
 
 		Intent intentset = new Intent();
-		intentset.setClass(MyCenterViewpager.this, Setting.class);
+		intentset.setClass(MyCenterViewpager.this, AppSetting.class);
 		startActivity(intentset);
 	}
 }

@@ -1,34 +1,36 @@
-package com.feytuo.bageshuo;
+package com.feytuo.bageshuo.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.feytuo.bageshuo.R;
+
 /**
- * 搜索人或者社区
+ * 系统设置的模块
  * 
  * @version v1.0
  * 
- * @date 2015-03-26
+ * @date 2015-03-15
  * 
  * @author tangpeng
  * 
  */
-public class HomePersonSearch extends Activity {
+public class AppSetting extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.home_person_search);
+		setContentView(R.layout.setting);
 		initView();
 	}
 
 	private void initView() {
 
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
-		titleTv.setText("搜索");// 设置标题；
+		titleTv.setText("设置");// 设置标题；
 
 	}
 
