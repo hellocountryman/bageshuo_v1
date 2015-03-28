@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f0f0f0"
+    android:background="@color/topic_bg"
     android:orientation="vertical" >
 
     <include layout="@layout/top_bar_back" />
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="10dip"
-        android:divider="#f0f0f0"
+        android:divider="@color/topic_bg"
         android:dividerHeight="8dip"
         android:scrollbars="none" >
     </com.feytuo.bageshuo.widget.XListView>

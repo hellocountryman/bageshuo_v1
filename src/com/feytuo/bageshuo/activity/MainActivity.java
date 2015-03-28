@@ -1,6 +1,7 @@
 package com.feytuo.bageshuo.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -38,7 +39,7 @@ import com.feytuo.bageshuo.util.DisplayUtil;
 @SuppressLint("ResourceAsColor")
 public class MainActivity extends FragmentActivity {
 
-	private final static String TAG="MAINACTIVITY";
+	private final static String TAG = "MAINACTIVITY";
 	// 定义3个Fragment的对象
 	private Fragment1 fg1;
 	private Fragment2 fg2;
@@ -71,13 +72,12 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 		fManager = getSupportFragmentManager();
 		initViews();
-		
-		 int sp=DisplayUtil.px2sp(this, 20);
-//		int sp=DisplayUtil.px2sp(this, 30);==15
-//		int sp=DisplayUtil.px2sp(this, 30);==15
-		 Toast.makeText(this, sp+"lala", Toast.LENGTH_LONG).show();
+
+		int sp = DisplayUtil.px2sp(this, 20);
+		// int sp=DisplayUtil.px2sp(this, 30);==15
+		// int sp=DisplayUtil.px2sp(this, 30);==15
+		Toast.makeText(this, sp + "lala", Toast.LENGTH_LONG).show();
 	}
-	
 
 	/**
 	 * 完成组件的初始化
@@ -102,13 +102,10 @@ public class MainActivity extends FragmentActivity {
 		indexBottomBageshuoRl.setOnClickListener(btnListener);
 		indexBottomFindRl.setOnClickListener(btnListener);
 		indexBottomFriendRl.setOnClickListener(btnListener);
-		
-		setChioceItem(0);//默认进入社区版块
+
+		setChioceItem(0);// 默认进入社区版块
 	}
 
-	
-	
-	
 	/**
 	 * 按钮的监听事件
 	 */
@@ -124,7 +121,9 @@ public class MainActivity extends FragmentActivity {
 				setChioceItem(1);
 				break;
 			case R.id.index_bottom_find_rl:
-				setChioceItem(2);
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, Find.class);
+				startActivity(intent);
 				break;
 			case R.id.index_bottom_friend_rl:
 				setChioceItem(3);
@@ -148,7 +147,8 @@ public class MainActivity extends FragmentActivity {
 		case 0:
 
 			indexBottomCommunityIv.setImageResource(R.drawable.ic_home_press);
-			indexBottomCommunityTv.setTextColor(this.getResources().getColor(R.color.index_botton_text_press));
+			indexBottomCommunityTv.setTextColor(this.getResources().getColor(
+					R.color.index_botton_text_press));
 			if (fg1 == null) {
 				// 如果fg1为空，则创建一个并添加到界面上
 				fg1 = new Fragment1();
@@ -160,9 +160,10 @@ public class MainActivity extends FragmentActivity {
 			break;
 
 		case 1:
-			
+
 			indexBottomBageshuoIv.setImageResource(R.drawable.ic_chat_press);
-			indexBottomBageshuoTv.setTextColor(this.getResources().getColor(R.color.index_botton_text_press));
+			indexBottomBageshuoTv.setTextColor(this.getResources().getColor(
+					R.color.index_botton_text_press));
 
 			if (fg2 == null) {
 				// 如果fg1为空，则创建一个并添加到界面上
@@ -175,9 +176,10 @@ public class MainActivity extends FragmentActivity {
 			break;
 
 		case 2:
-			
+
 			indexBottomFindIv.setImageResource(R.drawable.ic_detect_press);
-			indexBottomFindTv.setTextColor(this.getResources().getColor(R.color.index_botton_text_press));
+			indexBottomFindTv.setTextColor(this.getResources().getColor(
+					R.color.index_botton_text_press));
 			if (fg3 == null) {
 				// 如果fg1为空，则创建一个并添加到界面上
 				fg3 = new Fragment3();
@@ -186,12 +188,15 @@ public class MainActivity extends FragmentActivity {
 				// 如果MessageFragment不为空，则直接将它显示出来
 				transaction.show(fg3);
 			}
-			break;
+
 			
+			break;
+
 		case 3:
 
 			indexBottomFriendIv.setImageResource(R.drawable.ic_friends_press);
-			indexBottomFriendTv.setTextColor(this.getResources().getColor(R.color.index_botton_text_press));
+			indexBottomFriendTv.setTextColor(this.getResources().getColor(
+					R.color.index_botton_text_press));
 
 			if (fg4 == null) {
 				// 如果fg1为空，则创建一个并添加到界面上
@@ -234,7 +239,7 @@ public class MainActivity extends FragmentActivity {
 
 		indexBottomBageshuoIv.setImageResource(R.drawable.ic_chat_normal);
 		indexBottomBageshuoTv.setTextColor(R.color.index_botton_text_normal);
-		
+
 		indexBottomFindIv.setImageResource(R.drawable.ic_detect_normal);
 		indexBottomFindTv.setTextColor(R.color.index_botton_text_normal);
 

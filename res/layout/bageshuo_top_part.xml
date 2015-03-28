@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bageshuo_head_bg"
+    android:clickable="false"
+    android:focusable="false"
     android:gravity="bottom"
     android:orientation="vertical" >
 
     <LinearLayout
-      
         android:layout_width="match_parent"
         android:layout_height="50dip"
         android:layout_marginBottom="32.0dip"
@@ -30,7 +31,7 @@
             android:background="@color/partinglinevertical" />
 
         <TextView
-              android:id="@+id/bageshuo_search_tv"
+            android:id="@+id/bageshuo_search_tv"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
