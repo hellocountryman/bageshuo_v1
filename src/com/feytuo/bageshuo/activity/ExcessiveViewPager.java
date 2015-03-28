@@ -3,12 +3,6 @@ package com.feytuo.bageshuo.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.drawable;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
-import com.feytuo.bageshuo.adapter.ExcessiveViewPagerAdapter;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.feytuo.bageshuo.R;
+import com.feytuo.bageshuo.adapter.ExcessiveViewPagerAdapter;
 
 /**
  * 轮播页面登录注册
@@ -142,6 +138,7 @@ public class ExcessiveViewPager extends Activity implements OnClickListener,
 	
 	public void userRegisterBtn(View v) {
 		Intent intentRegister = new Intent();
+		intentRegister.putExtra("isRegister", true);
 		intentRegister.setClass(this, UserRegistInputPhone.class);
 		startActivity(intentRegister);
 		finish();

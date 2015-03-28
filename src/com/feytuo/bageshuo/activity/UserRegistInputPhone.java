@@ -1,9 +1,5 @@
 package com.feytuo.bageshuo.activity;
 
-import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.feytuo.bageshuo.R;
+
 /**
- * 用户注册输入手机号码页面
+ * 用户注册、忘记密码输入手机号码页面
  * 
  * @version v1.0
  * 
@@ -26,18 +24,23 @@ import android.widget.Toast;
 public class UserRegistInputPhone extends Activity {
 
 	private EditText registerInputPhoneEt;//
+	private boolean isRegister = false;//是注册or忘记密码
 
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register_input_phone);
-
+		isRegister = getIntent().getBooleanExtra("isRegister", false);
 		initView();
 	}
 
 	public void initView() {
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
-		titleTv.setText("注册");// 设置标题；
+		if(isRegister){
+			titleTv.setText("注册");// 设置标题；
+		}else{
+			titleTv.setText("找回密码");
+		}
 		registerInputPhoneEt = (EditText) findViewById(R.id.register_input_phone_et);
 	}
 
@@ -52,12 +55,13 @@ public class UserRegistInputPhone extends Activity {
 			return;
 		}
 		if(phoneNumber.getBytes().length != 11){
-			Toast.makeText(this, "号码不够11位", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "号码位数不对", Toast.LENGTH_SHORT).show();
 			return;
 		}
 		
 		Intent intent = new Intent();
 		intent.setClass(this, UserRegistVerification.class);
+		intent.putExtra("isRegister", isRegister);
 		intent.putExtra("phone_number", phoneNumber);
 		startActivity(intent);
 		finish();

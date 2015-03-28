@@ -22,8 +22,6 @@ import cn.smssdk.SMSSDK;
 import com.feytuo.bageshuo.App;
 import com.feytuo.bageshuo.Global;
 import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.util.AppInfoUtil;
 import com.feytuo.bageshuo.util.SyncHttpTask;
 import com.feytuo.bageshuo.util.SyncHttpTask.CallBack;
@@ -45,6 +43,7 @@ public class UserRegistVerification extends Activity {
 	private Button registeVerivationAgainBtn;// 点击获取验证码
 	private TextView registerVerigicationHintTv;// 发送提示
 
+	private boolean isRegister = false;//是注册or忘记密码
 	// int count = 60;
 	// private TimerTask timerTask;
 	// private Timer timer;
@@ -56,6 +55,7 @@ public class UserRegistVerification extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register_input_verification);
+		isRegister = getIntent().getBooleanExtra("isRegister", false);
 		app = (App) getApplication();
 		phoneNumber = getIntent().getStringExtra("phone_number");
 		initView();
@@ -72,7 +72,11 @@ public class UserRegistVerification extends Activity {
 		registerVerigicationHintTv.setText("已给手机号码" + phoneNumber + "发送一条验证短信");
 
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
-		titleTv.setText("注册");// 设置标题；
+		if(isRegister){
+			titleTv.setText("注册");// 设置标题
+		}else{
+			titleTv.setText("找回密码");// 设置标题
+		}
 	}
 
 	private void initDate() {
@@ -120,7 +124,7 @@ public class UserRegistVerification extends Activity {
 			Toast.makeText(this, "验证码不能为空", Toast.LENGTH_SHORT).show();
 		}
 		if (TextUtils.isEmpty(registerVerivationvPasswordEt.getText().toString())) {
-			Toast.makeText(this, "密码不能为空",Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "新密码不能为空",Toast.LENGTH_SHORT).show();
 			return ;
 		}
 		SMSSDK.submitVerificationCode("86", phoneNumber,
@@ -168,8 +172,13 @@ public class UserRegistVerification extends Activity {
 					if (time != null) {
 						time.cancel();
 					}
-					//用户注册
-					UserRegister();
+					if(isRegister){
+						//用户注册
+						UserRegister();
+					}else{
+						//用户修改密码
+						UserUpdatePwd();
+					}
 				} else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
 					Toast.makeText(getApplicationContext(), "验证码已经发送",
 							Toast.LENGTH_SHORT).show();
@@ -196,6 +205,44 @@ public class UserRegistVerification extends Activity {
 		if (!TextUtils.isEmpty(phoneNumber)) {
 			SMSSDK.getVerificationCode("86", phoneNumber);
 		}
+	}
+
+	private void UserUpdatePwd() {
+		// TODO Auto-generated method stub
+		final String uPwd = registerVerivationvPasswordEt.getText().toString();
+		String params = "u_name="+phoneNumber
+				+"&u_pwd="+uPwd
+				+"&device_id="+AppInfoUtil.getDeviceId(this);
+		new SyncHttpTask().doGetTask(Global.USER_UPDATE_PWD, params,new CallBack() {
+			@Override
+			public void success(String response) {
+				// TODO Auto-generated method stub
+				try {
+					JSONObject jsonObject = new JSONObject(response);
+					int code = jsonObject.getInt("code");
+					if(code == Global.NET_SUCCESS){//code==100
+						//登录环信服务器
+						//保存u_id、u_name、u_pwd
+						int uId = jsonObject.getJSONObject("data").getInt("u_id");
+						app.saveUid(uId);
+						app.saveUname(phoneNumber);
+						app.saveUpwd(uPwd);
+						finish();
+					}else{//code==101
+						Toast.makeText(UserRegistVerification.this, "找回密码失败",Toast.LENGTH_SHORT).show();
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			@Override
+			public void failure(String response) {
+				// TODO Auto-generated method stub
+				Toast.makeText(UserRegistVerification.this, "找回密码失败",Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	/**

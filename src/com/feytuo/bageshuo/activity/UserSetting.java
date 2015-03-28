@@ -1,19 +1,25 @@
 package com.feytuo.bageshuo.activity;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,15 +27,19 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.feytuo.bageshuo.App;
+import com.feytuo.bageshuo.Global;
 import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.city.CityPicker;
+import com.feytuo.bageshuo.util.AppInfoUtil;
 import com.feytuo.bageshuo.util.BitmapUtil;
+import com.feytuo.bageshuo.util.SyncHttpTask;
+import com.feytuo.bageshuo.util.SyncHttpTask.CallBack;
 
 /**
- * 用户进入s设置
+ * 注册或者第三方登录新用户进入信息设置
  * 
  * @version v1.0
  * 
@@ -39,7 +49,8 @@ import com.feytuo.bageshuo.util.BitmapUtil;
  * 
  */
 public class UserSetting extends Activity {
-	private static final String TAG = "USERSETTING";
+	private static final String TAG = "UserSetting";
+	private App app;
 	private Button setUserHeadBtn;// 头像
 	private TextView userSetHomelandTv;// 家乡
 	private TextView userSetSexTv;// 性别
@@ -52,19 +63,34 @@ public class UserSetting extends Activity {
 	private static final int PHOTO_REQUEST_TAKEPHOTO = 1;
 	private static final int PHOTO_REQUEST_GALLERY = 2;
 	private static final int PHOTO_REQUEST_CUT = 3;
+	
+	private Bitmap headBmp;
 
-	File tempFile = new File(Environment.getExternalStorageDirectory(),
-			getPhotoFileName());// 图片名字
+	private File tempFile;// 图片名字
 	private int crop = 180;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		app = (App) getApplication();
 		setContentView(R.layout.user_seting);
-		initView();
+		Bundle bundle = getIntent().getExtras();
+		initFile();
+		initView(bundle);
 	}
 
-	public void initView() {
+	private void initFile() {
+		// TODO Auto-generated method stub
+		File fileDir = new File(Global.HEAD_IMG_TEMP_DIR);
+		if(!fileDir.exists()){
+			fileDir.mkdirs();
+		}
+		tempFile = new File(Global.HEAD_IMG_TEMP_DIR,
+				getPhotoFileName());
+	}
+
+	@SuppressWarnings("deprecation")
+	public void initView(Bundle bundle) {
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
 		titleTv.setText("我的设置");// 设置标题；
 
@@ -79,6 +105,14 @@ public class UserSetting extends Activity {
 		setSelectHeadLl = (LinearLayout) findViewById(R.id.set_select_head_ll);
 
 		setUserHeadBtn.setOnClickListener(new listener());
+		
+		if (bundle != null) {
+			headBmp = bundle.getParcelable("head_bmp");
+			Drawable drawable = new BitmapDrawable(
+					BitmapUtil.toRoundBitmap(headBmp));// 获取到的头像转化成圆形
+			setUserHeadBtn.setBackgroundDrawable(drawable);
+			userSetNickEt.setText(bundle.getString("nick_name"));
+		}
 	}
 
 	class listener implements OnClickListener {
@@ -206,15 +240,15 @@ public class UserSetting extends Activity {
 	private void setPicToView(Intent picdata) {
 		Bundle bundle = picdata.getExtras();
 		if (bundle != null) {
-			Bitmap photo = bundle.getParcelable("data");
-			@SuppressWarnings("deprecation")
+			headBmp = bundle.getParcelable("data");
 			Drawable drawable = new BitmapDrawable(
-					BitmapUtil.toRoundBitmap(photo));// 获取到的头像转化成圆形
+					BitmapUtil.toRoundBitmap(headBmp));// 获取到的头像转化成圆形
 			setUserHeadBtn.setBackgroundDrawable(drawable);
 		}
 	}
 
 	// 设置获取到图片的名字
+	@SuppressLint("SimpleDateFormat")
 	private String getPhotoFileName() {
 		Date date = new Date(System.currentTimeMillis());// 获取当前的系统的时间
 		SimpleDateFormat dateFormat = new SimpleDateFormat(
@@ -253,12 +287,94 @@ public class UserSetting extends Activity {
 	 * @param v
 	 */
 	public void UserSettingOk(View v) {
-		
-		Intent intentok=new Intent();
-		intentok.setClass(this, MainActivity.class);
-		startActivity(intentok);
-		finish();
+		if(TextUtils.isEmpty(userSetHomelandTv.getText())){
+			Toast.makeText(this, "请选择家乡", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		if(TextUtils.isEmpty(userSetSexTv.getText())){
+			Toast.makeText(this, "请选择性别", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		if(TextUtils.isEmpty(userSetNickEt.getText())){
+			Toast.makeText(this, "请填写昵称", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		if(headBmp == null || setUserHeadBtn.getBackground() == null){
+			Toast.makeText(this, "请选择头像", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		getHeadBmpFile();
+		//设置用户个人信息
+		setUserInfo();
 	}
+
+	private void getHeadBmpFile() {
+		// TODO Auto-generated method stub
+		FileOutputStream ous;
+		try {
+			ous = new FileOutputStream(tempFile);
+			headBmp.compress(CompressFormat.JPEG, 100, ous);
+			ous.flush();
+			ous.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	/**
+	 * 将用户信息保存到服务器
+	 */
+	private void setUserInfo() {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> urlParams = new HashMap<String, Object>();
+		urlParams.put("u_id", app.getUid());
+		urlParams.put("device_id", AppInfoUtil.getDeviceId(this));
+		urlParams.put("u_nick", userSetNickEt.getText());
+		urlParams.put("u_sex", userSetSexTv.getText());
+		urlParams.put("u_home", userSetHomelandTv.getText());
+		Log.i(TAG, app.getUid()+""+AppInfoUtil.getDeviceId(this)+""
+				+userSetNickEt.getText()
+				+userSetSexTv.getText()+""
+				+userSetHomelandTv.getText()+"");
+		new SyncHttpTask().doPostFileTask(Global.USER_SET_USERINFO, urlParams, tempFile, "u_head", new CallBack() {
+			
+			@Override
+			public void success(String response) {
+				// TODO Auto-generated method stub
+				try {
+					JSONObject jsonObject = new JSONObject(response);
+					int code = jsonObject.getInt("code");
+					Log.i(TAG, "code:"+code);
+					if(code == Global.NET_SUCCESS){//code==100
+						//页面跳转到用户设置界面
+						Intent intent = new Intent();
+						intent.setClass(UserSetting.this, MainActivity.class);
+						startActivity(intent);
+						finish();
+						Toast.makeText(UserSetting.this, "用户信息保存成功",Toast.LENGTH_SHORT).show();
+					}else if(code == Global.NET_FAILURE){//code==101
+						Toast.makeText(UserSetting.this, "用户信息保存失败",Toast.LENGTH_SHORT).show();
+					}else{
+						Toast.makeText(UserSetting.this, "用户信息保存失败,上传头像文件过大",Toast.LENGTH_SHORT).show();
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					Toast.makeText(UserSetting.this, "用户信息保存失败，服务器问题",Toast.LENGTH_SHORT).show();
+					e.printStackTrace();
+				}
+			}
+			
+			@Override
+			public void failure(String response) {
+				// TODO Auto-generated method stub
+				Toast.makeText(UserSetting.this, "用户信息保存失败",Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
 	public void onBackBtn(View v) {
 		finish();
 	}

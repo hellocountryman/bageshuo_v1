@@ -1,23 +1,17 @@
-package com.feytuo.bageshuo.util;
+package com.feytuo.bageshuo.wxapi;
 
-import java.io.File;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
@@ -27,33 +21,32 @@ import org.apache.http.util.EntityUtils;
 
 import android.util.Log;
 
-import com.feytuo.bageshuo.Global;
-
 /**
  * @author feytuo
  * 
  *       以同步方式发送Http请求
  */
-public class SyncHttp {
+public class WXNetUtil {
 
-	private int timeoutConnection = 10*1000;//由网络问题引起的连接超时
-	private int timeoutSocket = 20*1000;//服务器响应超时
+	private final String BASE_URL  = "https://api.weixin.qq.com/sns";
+	private int timeoutConnection = 5*1000;//由网络问题引起的连接超时
+	private int timeoutSocket = 10*1000;//服务器响应超时
 	private HttpParams httpParams;
 	private HttpClient httpClient;
 	private String apiUrl;
 	private String charset = "UTF-8";
-	public SyncHttp (String url) {
+	public WXNetUtil (String url) {
 		initClient(url);
 	}
 	
-	public SyncHttp (String url, String charset) {
+	public WXNetUtil (String url, String charset) {
 		initClient(url);
 		this.charset = charset; // set charset
 	}
 	
 	private void initClient (String url) {
 		// initialize API URL
-		this.apiUrl = Global.BASE_URL + url;
+		this.apiUrl = BASE_URL + url;
 		// set client timeout
 		httpParams = new BasicHttpParams();
 		HttpConnectionParams.setConnectionTimeout(httpParams, timeoutConnection);// Set the timeout in
@@ -92,7 +85,7 @@ public class SyncHttp {
 			if (statusCode == HttpStatus.SC_OK) // SC_OK = 200
 			{
 				// 获得返回结果
-				response = EntityUtils.toString(httpResponse.getEntity());
+				response = EntityUtils.toString(httpResponse.getEntity(),charset);
 			} else {
 				response = "返回码：" + statusCode;
 			}
@@ -127,37 +120,7 @@ public class SyncHttp {
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 		if (statusCode == HttpStatus.SC_OK) {
 			// 获得返回结果
-			response = EntityUtils.toString(httpResponse.getEntity());
-		} else {
-			response = "返回码：" + statusCode;
-		}
-		Log.i("client", "post/response:"+response);
-		return response;
-	}
-	/**
-	 * 通过POST方式发送请求
-	 * 
-	 * @param url
-	 *            URL地址
-	 * @param params
-	 *            参数中含有文件
-	 * @return
-	 * @throws Exception
-	 */
-	public String filePost(HashMap<String , Object> urlParams,File file,String fileKey) throws Exception {
-		String response = null;
-		HttpPost httpPost = new HttpPost(apiUrl);
-		Log.i("client", "post/url:"+apiUrl);
-		if (urlParams.size() >= 0) {
-			// 设置httpPost请求参数
-			httpPost.setEntity(buildEntity(urlParams,file,fileKey));
-		}
-		// 使用execute方法发送HTTP Post请求，并返回HttpResponse对象
-		HttpResponse httpResponse = httpClient.execute(httpPost);
-		int statusCode = httpResponse.getStatusLine().getStatusCode();
-		if (statusCode == HttpStatus.SC_OK) {
-			// 获得返回结果
-			response = EntityUtils.toString(httpResponse.getEntity());
+			response = EntityUtils.toString(httpResponse.getEntity(),charset);
 		} else {
 			response = "返回码：" + statusCode;
 		}
@@ -183,57 +146,4 @@ public class SyncHttp {
 		return result;
 	}
 	
-	/**
-	 * 带文件的参数
-	 * @param urlParams
-	 * @param file 
-	 * @param fileKey 
-	 * @return
-	 */
-	private HttpEntity buildEntity(HashMap<String, Object> urlParams, File file, String fileKey){
-		MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
-		entityBuilder.setCharset(Charset.forName(charset));//设置请求的编码格式
-		entityBuilder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);//设置浏览器兼容模式
-		Iterator<Entry<String, Object>> it = urlParams.entrySet().iterator();
-		while (it.hasNext()) {
-			Entry<String, Object> entry = it.next();
-			Log.i("client", "post/params:"+entry.getKey().toString()+" : "+entry.getValue().toString());
-			entityBuilder.addTextBody(entry.getKey().toString(), 
-					entry.getValue().toString());
-//			entityBuilder.addPart(entry.getKey().toString(), new StringBody(entry.getValue().toString(), ContentType.TEXT_PLAIN));
-		}
-		FileBody fileBody = new FileBody(file);
-		entityBuilder.addPart(fileKey, fileBody);
-		return entityBuilder.build();
-	}
-	
-//	/**
-//	 * 带文件的参数
-//	 * @param urlParams
-//	 * @param file 
-//	 * @param fileKey 
-//	 * @return
-//	 */
-//	private MultipartEntity buildEntity(HashMap<String, Object> urlParams, File file, String fileKey){
-//		MultipartEntity entity = new MultipartEntity();
-//		Iterator<Entry<String, Object>> it = urlParams.entrySet().iterator();
-//		while (it.hasNext()) {
-//			Entry<String, Object> entry = it.next();
-//			try {
-//				Log.i("client", "post/params:"+entry.getKey().toString()+" : "+entry.getValue().toString());
-//				entity.addPart(
-//						entry.getKey().toString(),
-//				        new StringBody(entry.getValue().toString(), Charset
-//				                .forName(org.apache.http.protocol.HTTP.UTF_8)));
-//			} catch (UnsupportedEncodingException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		FileBody fileBody = new FileBody(file);
-//		entity.addPart(fileKey, fileBody);
-//		return entity;
-//	}
-
-
 }
