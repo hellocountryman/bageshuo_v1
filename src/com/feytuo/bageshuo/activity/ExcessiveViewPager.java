@@ -34,9 +34,9 @@ public class ExcessiveViewPager extends Activity implements OnClickListener,
 	private List<View> views;
 
 	// 引导图片资源
-	private static final int[] pics = { R.drawable.lunbo,
-			R.drawable.lunbo, R.drawable.lunbo,
-			R.drawable.lunbo };
+	private static final int[] pics = { R.drawable.abg1,
+			R.drawable.abg1, R.drawable.abg1,
+			R.drawable.abg1 };
 
 	// 底部小店图片
 	private ImageView[] dots;

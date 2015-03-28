@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="95dip"
+    android:background="@drawable/corners_storke_edit"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dip"
+        android:layout_marginRight="17dip"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/topiclist_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="飞机迪斯科房价松动佛挡杀佛 范德萨"
+            android:textColor="@color/tiezi"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/topiclist_looknum_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topiclist_title_tv"
+            android:layout_marginTop="8.0dip"
+            android:text="3622人参与"
+            android:textColor="@color/title_hint" />
+
+        <TextView
+            android:id="@+id/topiclist_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topiclist_title_tv"
+            android:layout_marginLeft="8.0dip"
+            android:layout_marginTop="8.0dip"
+            android:layout_toRightOf="@id/topiclist_looknum_tv"
+            android:text="35分钟前"
+            android:textColor="@color/title_hint" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/topiclist_iv"
+        android:layout_width="85dip"
+        android:layout_height="85dip"
+        android:layout_margin="5.0dip"
+        android:background="@drawable/a01" />
+
+</LinearLayout>

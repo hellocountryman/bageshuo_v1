@@ -36,7 +36,8 @@
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
             android:name="com.feytuo.bageshuo.activity.Welcome"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.MainActivity"
@@ -44,28 +45,38 @@
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.ExcessiveViewPager"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+           <activity
+            android:name="com.feytuo.bageshuo.activity.Find"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.HotHome"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.HomeDetails"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.HomePersonSearch"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.HomeDetailsIntroduce"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.InvitationDetails"
@@ -75,55 +86,73 @@
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.TopicList"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.feytuo.bageshuo.activity.TopicDetails"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.PersonsList"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.PublishFirst"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.PublishSecond"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.UserRegistInputPhone"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.UserRegistVerification"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.UserSetting"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.AppSetting"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.UserLogin"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.BageshuoTranslate"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.MyCenterViewpager"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.OtherCenter"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.feytuo.bageshuo.activity.UpdateInfo"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
 
         <!-- QQ start -->

@@ -149,6 +149,7 @@ public class UserRegistVerification extends Activity {
 		@Override
 		public void onTick(long millisUntilFinished) {// 计时过程显示
 			registeVerivationAgainBtn.setClickable(false);
+			registeVerivationAgainBtn.setTextColor(getResources().getColor(R.color.grey));
 			registeVerivationAgainBtn.setText(millisUntilFinished / 1000 + "秒");
 		}
 	}

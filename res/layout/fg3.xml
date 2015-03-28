@@ -2,11 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_bg"
-    android:gravity="center"
+    android:background="@color/topic_bg"
+    android:gravity="center_vertical"
     android:orientation="vertical" >
 
-    <include  layout="@layout/top_bar_no_back_title"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dip"
+        android:layout_marginLeft="8.0dip"
+        android:drawableLeft="@drawable/ic_back"
+        android:drawablePadding="8.0dip"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+         android:clickable="true"
+        android:text="@string/find" />
 
     <com.feytuo.bageshuo.widget.FindCardContainer
         android:id="@+id/find_card_view"

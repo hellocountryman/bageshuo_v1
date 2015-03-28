@@ -3,10 +3,10 @@
     android:id="@+id/set_select_sex_ll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:visibility="gone"
     android:layout_alignParentBottom="true"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:visibility="gone" >
 
     <include layout="@layout/partingline_bottom_part" />
 
@@ -16,19 +16,18 @@
         android:onClick="setSelectSexManBtn"
         android:text="@string/man" />
 
-    <include layout="@layout/partingline_bottom_part" />
-
     <Button
         android:id="@+id/doctorimgfromcamera"
         style="@style/set_sex_head_btn"
+        android:layout_marginTop="8.0dip"
         android:onClick="setSelectSexWomenBtn"
         android:text="@string/women" />
-
-    <include layout="@layout/partingline_bottom_part" />
 
     <Button
         android:id="@+id/doctor_select_exit"
         style="@style/set_sex_head_btn"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginTop="8.0dip"
         android:onClick="setSelectSexCancelBtn"
         android:text="@string/quxiao" />
 
