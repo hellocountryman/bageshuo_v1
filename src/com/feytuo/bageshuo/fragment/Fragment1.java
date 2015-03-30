@@ -128,6 +128,7 @@ public class Fragment1 extends Fragment {
 				break;
 
 			default:
+				
 				break;
 			}
 			getActivity().startActivity(intent);
