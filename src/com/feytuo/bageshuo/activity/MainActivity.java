@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
@@ -16,13 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.color;
-import com.feytuo.bageshuo.R.drawable;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.fragment.Fragment1;
 import com.feytuo.bageshuo.fragment.Fragment2;
-import com.feytuo.bageshuo.fragment.Fragment3;
 import com.feytuo.bageshuo.fragment.Fragment4;
 import com.feytuo.bageshuo.util.DisplayUtil;
 
@@ -43,7 +37,7 @@ public class MainActivity extends FragmentActivity {
 	// 定义3个Fragment的对象
 	private Fragment1 fg1;
 	private Fragment2 fg2;
-	private Fragment3 fg3;
+//	private Fragment3 fg3;
 	private Fragment4 fg4;
 	// 帧布局对象,就是用来存放Fragment的容器
 	private FrameLayout flayout;
@@ -180,14 +174,14 @@ public class MainActivity extends FragmentActivity {
 			indexBottomFindIv.setImageResource(R.drawable.ic_detect_press);
 			indexBottomFindTv.setTextColor(this.getResources().getColor(
 					R.color.index_botton_text_press));
-			if (fg3 == null) {
-				// 如果fg1为空，则创建一个并添加到界面上
-				fg3 = new Fragment3();
-				transaction.add(R.id.content, fg3);
-			} else {
-				// 如果MessageFragment不为空，则直接将它显示出来
-				transaction.show(fg3);
-			}
+//			if (fg3 == null) {
+//				// 如果fg1为空，则创建一个并添加到界面上
+//				fg3 = new Fragment3();
+//				transaction.add(R.id.content, fg3);
+//			} else {
+//				// 如果MessageFragment不为空，则直接将它显示出来
+//				transaction.show(fg3);
+//			}
 
 			
 			break;
@@ -221,9 +215,9 @@ public class MainActivity extends FragmentActivity {
 		if (fg2 != null) {
 			transaction.hide(fg2);
 		}
-		if (fg3 != null) {
-			transaction.hide(fg3);
-		}
+//		if (fg3 != null) {
+//			transaction.hide(fg3);
+//		}
 		if (fg4 != null) {
 			transaction.hide(fg4);
 		}

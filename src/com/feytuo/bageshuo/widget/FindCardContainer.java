@@ -102,13 +102,14 @@ public class FindCardContainer extends AdapterView<ListAdapter> {
 	}
 
 	private void initFromXml(AttributeSet attr) {
-		
+
 		TypedArray a = getContext().obtainStyledAttributes(attr,
 				R.styleable.FindCardContainer);
 
 		setGravity(a.getInteger(R.styleable.FindCardContainer_android_gravity,
 				Gravity.CENTER));
-		int orientation = a.getInteger(R.styleable.FindCardContainer_orientation, 1);
+		int orientation = a.getInteger(
+				R.styleable.FindCardContainer_orientation, 1);
 		setOrientation(Orientation.fromIndex(orientation));
 
 		a.recycle();
@@ -265,7 +266,7 @@ public class FindCardContainer extends AdapterView<ListAdapter> {
 		if (mGestureDetector.onTouchEvent(event)) {
 			return true;
 		}
-		
+
 		final int pointerIndex;
 		final float x, y;
 		final float dx, dy;
@@ -453,16 +454,14 @@ public class FindCardContainer extends AdapterView<ListAdapter> {
 				float velocityY) {
 			final View topCard = mTopCard;
 			float dx = e2.getX() - e1.getX();
-	
-			// if (Math.abs(dx) > mTouchSlop &&
-			// Math.abs(velocityX) > Math.abs(velocityY) &&
-			// Math.abs(velocityX) > mFlingSlop * 3)
-			if (Math.abs(dx) > mTouchSlop) {
 
+			if (Math.abs(dx) > mTouchSlop
+					&& Math.abs(velocityX) > Math.abs(velocityY)
+					&& Math.abs(velocityX) > mFlingSlop*3) {
+				// if (Math.abs(dx) > mTouchSlop) {
 				position++;// 数目+1
 				setposition(position);
-				
-				Log.i(TAG, "怎么回事" +position);
+				Log.i(TAG, "怎么回事" + position);
 				float targetX = topCard.getX();
 				float targetY = topCard.getY();
 				long duration = 0;
@@ -482,7 +481,8 @@ public class FindCardContainer extends AdapterView<ListAdapter> {
 
 				mTopCard = getChildAt(getChildCount() - 2);
 
-				FindCardModel cardModel = (FindCardModel) getAdapter().getItem(0);
+				FindCardModel cardModel = (FindCardModel) getAdapter().getItem(
+						0);
 				if (mTopCard != null)
 					mTopCard.setLayerType(LAYER_TYPE_HARDWARE, null);
 
@@ -516,13 +516,13 @@ public class FindCardContainer extends AdapterView<ListAdapter> {
 		}
 	}
 
-	//获得
+	// 获得
 	public void setposition(int position) {
-		this.position=position;
+		this.position = position;
 	}
-	public int getposition()
-	{
+
+	public int getposition() {
 		return position;
 	}
-	
+
 }
