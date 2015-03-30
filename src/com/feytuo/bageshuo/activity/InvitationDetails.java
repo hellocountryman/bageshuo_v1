@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
@@ -59,8 +61,8 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 			"tangxiao", "朋友跟我哭诉，说因为太穷而经常失恋", "朋友跟我哭诉，说因为太穷而经常失恋", "tangxiao" };
 	private int[] arrayuserhead = { R.drawable.lunbo, R.drawable.lunbo,
 			R.drawable.lunbo, R.drawable.lunbo, R.drawable.lunbo };
-	
-	private LinearLayout partCommentLl;//评论模块
+
+	private LinearLayout partCommentLl;// 评论模块
 	private Button commentAddBtn;// 点击添加录音的按钮
 	private EditText commentTextEdit;// 输入评论的文字
 	private Button commentSendBtn;// 发送评论按钮
@@ -118,7 +120,7 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 		commentTextEdit = (EditText) findViewById(R.id.comment_text_edit);
 		commentSendBtn = (Button) findViewById(R.id.comment_send_btn);
 		commentRecordLl = (LinearLayout) findViewById(R.id.comment_record_ll);
-		partCommentLl=(LinearLayout) findViewById(R.id.part_comment_ll);
+		partCommentLl = (LinearLayout) findViewById(R.id.part_comment_ll);
 		commentDeleteBtn = (Button) findViewById(R.id.comment_delete_btn);
 		commentRecordBtn = (Button) findViewById(R.id.comment_record_btn);
 		commentAuditionBtn = (Button) findViewById(R.id.comment_audition_btn);
@@ -129,6 +131,7 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 		commentAddBtn.setOnClickListener(listen);
 		commentDeleteBtn.setOnClickListener(listen);
 		commentAuditionBtn.setOnClickListener(listen);
+		commentRecordBtn.setOnClickListener(listen);
 		commentRecordBtn.setOnTouchListener(new OnToucher());
 
 	}
@@ -148,7 +151,7 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 				softkeyboard();
 				if (commentRecordLl.getVisibility() == View.GONE) {
 					commentRecordLl.setVisibility(View.VISIBLE);
-//					showcomment();
+					// showcomment();
 				} else {
 					commentRecordLl.setVisibility(View.GONE);
 				}
@@ -157,12 +160,18 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 			case R.id.comment_delete_btn:
 
 				deleteAudion();
-				commentRecordTimeTv.setVisibility(View.GONE);
+				commentRecordTimeTv.setVisibility(View.INVISIBLE);
 				commentRecordBtn
 						.setBackgroundResource(R.drawable.bt_comment_record_1);
+				commentAuditionBtn.setVisibility(View.INVISIBLE);
 				break;
 			case R.id.comment_audition_btn:
 				palyAudion();
+
+				break;
+			case R.id.comment_record_btn:
+				Toast.makeText(InvitationDetails.this, "亲，按住录音哦",
+						Toast.LENGTH_SHORT).show();
 				break;
 
 			default:
@@ -185,10 +194,9 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 				startAudio();
 				break;
 			case MotionEvent.ACTION_UP:
-				commentRecordBtn
-						.setBackgroundResource(R.drawable.bt_comment_record_4);
-				commentRecordTimeTv.setVisibility(View.VISIBLE);
+
 				stopAudion();
+
 				break;
 
 			default:
@@ -218,14 +226,14 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-			switch (view.getId()) {
-		
-			default:
-				commentRecordLl.setVisibility(View.GONE);
-				break;
+				switch (view.getId()) {
+
+				default:
+					commentRecordLl.setVisibility(View.GONE);
+					break;
+				}
 			}
-			}
-			
+
 		});
 	}
 
@@ -274,11 +282,25 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 		}, 2000);
 	}
 
+	private int recorderTime;
+	private Timer recorderTimer;
+
 	/* ****************************************************************
 	 * 
 	 * 开始录音
 	 */
 	private void startAudio() {
+
+		recorderTime = 0;
+		recorderTimer = new Timer();
+		recorderTimer.schedule(new TimerTask() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				recorderTime++;
+			}
+		}, 1000l, 1000l);
 		// 创建录音频文件
 		// 这种创建方式生成的文件名是随机的
 		fileAudioName = "audio" + GetSystemDateTime.now()
@@ -311,13 +333,46 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 	 */
 	private void stopAudion() {
 
-		if (null != mediaRecorder) {
-			// 停止录音
-			mediaRecorder.stop();
-			mediaRecorder.release();
-			mediaRecorder = null;
+		if (recorderTime <= 1) {
+			Toast.makeText(this, "太短啦", Toast.LENGTH_SHORT).show();
+			recordAudio();
+		} else {
+			if (null != mediaRecorder) {
+				// 停止录音
+				commentRecordBtn.setText("");
+				mediaRecorder.stop();
 
+				commentRecordBtn
+						.setBackgroundResource(R.drawable.bt_comment_record_4);
+				commentRecordTimeTv.setVisibility(View.VISIBLE);
+				commentDeleteBtn.setVisibility(View.VISIBLE);
+				commentAuditionBtn.setVisibility(View.VISIBLE);
+			}
 		}
+		recorderTimer.cancel();
+		mediaRecorder.reset();
+		mediaRecorder.release();
+		mediaRecorder = null;
+
+	}
+
+	/**
+	 * 
+	 * 重新录音
+	 */
+	private void recordAudio() {
+		if (mp != null && mp.isPlaying()) {
+			mp.stop();
+		}
+		if (fileAudio != null) {
+			fileAudio.delete();// 文件删除
+			fileAudio = null;
+		}
+		commentRecordTimeTv.setVisibility(View.GONE);
+		commentRecordBtn.setBackgroundResource(R.drawable.bt_comment_record_1);
+		commentAuditionBtn.setVisibility(View.INVISIBLE);// 隐藏播放按钮
+		commentDeleteBtn.setVisibility(View.INVISIBLE);// 隐藏删除按钮
+
 	}
 
 	protected void onDestroy() {
@@ -383,11 +438,17 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 
 		@Override
 		public void onFinish() {
-			commentRecordTimeTv.setText("finish");
+			commentRecordTimeTv.setText("");
+			commentAuditionBtn.setVisibility(View.VISIBLE);// 显示播放按钮
+			commentAuditionBtn.setVisibility(View.VISIBLE);// 显示播放按钮
+			commentDeleteBtn.setVisibility(View.VISIBLE);// 显示删除按钮
 		}
 
 		@Override
 		public void onTick(long millisUntilFinished) {
+
+			commentAuditionBtn.setVisibility(View.INVISIBLE);// 隐藏播放按钮
+			commentDeleteBtn.setVisibility(View.INVISIBLE);// 隐藏删除按钮
 			commentRecordTimeTv.setText(millisUntilFinished / 1000 + "");
 			// Toast.makeText(InvitationDetailsActivity.this,
 			// millisUntilFinished / 1000 + "",
@@ -429,18 +490,14 @@ public class InvitationDetails extends Activity implements IXListViewListener {
 	/**
 	 * 动画，显评论
 	 */
-	public  void showcomment()
-	{
+	public void showcomment() {
 		Animation animation = AnimationUtils.loadAnimation(
 				InvitationDetails.this, R.anim.translate_record_show);
 		partCommentLl.startAnimation(animation);
 	}
 
-	
 	public void onBackBtn(View v) {
 		finish();
 	}
-	
-	
-	
+
 }
