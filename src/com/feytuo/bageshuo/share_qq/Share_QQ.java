@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.feytuo.bageshuo.Global;
 import com.feytuo.bageshuo.activity.UserLogin;
+import com.feytuo.bageshuo.util.ThreeLoginUtil;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.common.Constants;
 import com.tencent.connect.share.QQShare;
@@ -261,14 +262,16 @@ public class Share_QQ {
 							if (json.has("figureurl") && json.has("nickname")) {// 获取头像
 								try {
 									final String nickName = json.getString("nickname");
-									final Bitmap headBmp = Util.getbitmap(json.getString("figureurl_qq_2"));
+//									final Bitmap headBmp = Util.getbitmap(json.getString("figureurl_qq_2"));
+									final String headBmpUrl = json.getString("figureurl_qq_2");
 									if(context instanceof UserLogin){
 										((UserLogin) context).runOnUiThread(new Runnable() {
 											
 											@Override
 											public void run() {
 												// TODO Auto-generated method stub
-												((UserLogin)context).threeLoginSuccess(openId,nickName,headBmp,"QQ");
+//												((UserLogin)context).threeLoginSuccess(openId,nickName,headBmp,"QQ");
+												new ThreeLoginUtil(context).threeLoginSuccess(openId,nickName,headBmpUrl,"QQ");
 											}
 										});
 									}

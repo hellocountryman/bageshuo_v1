@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.feytuo.bageshuo.activity.UserLogin;
 import com.feytuo.bageshuo.share_qq.Util;
+import com.feytuo.bageshuo.util.ThreeLoginUtil;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.exception.WeiboException;
@@ -109,14 +110,15 @@ public class AuthListener implements WeiboAuthListener{
  						@Override
  						public void run() {
  							if (user.profile_image_url != null) {// 获取头像
- 								final Bitmap bitmap = Util.getbitmap(user.profile_image_url);
+// 								final Bitmap bitmap = Util.getbitmap(user.profile_image_url);
  								if(context instanceof UserLogin){
  									((UserLogin) context).runOnUiThread(new Runnable() {
 										
 										@Override
 										public void run() {
 											// TODO Auto-generated method stub
-											((UserLogin)context).threeLoginSuccess(uid+"", user.screen_name, bitmap, "Sina");
+//											((UserLogin)context).threeLoginSuccess(uid+"", user.screen_name, bitmap, "Sina");
+											new ThreeLoginUtil(context).threeLoginSuccess(uid+"", user.screen_name, user.profile_image_url, "Sina");
 										}
 									});//runOnUiThread
  								}//if

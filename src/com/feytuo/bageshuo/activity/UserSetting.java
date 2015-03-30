@@ -18,6 +18,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
@@ -33,6 +34,7 @@ import com.feytuo.bageshuo.App;
 import com.feytuo.bageshuo.Global;
 import com.feytuo.bageshuo.R;
 import com.feytuo.bageshuo.city.CityPicker;
+import com.feytuo.bageshuo.share_qq.Util;
 import com.feytuo.bageshuo.util.AppInfoUtil;
 import com.feytuo.bageshuo.util.BitmapUtil;
 import com.feytuo.bageshuo.util.SyncHttpTask;
@@ -89,7 +91,6 @@ public class UserSetting extends Activity {
 				getPhotoFileName());
 	}
 
-	@SuppressWarnings("deprecation")
 	public void initView(Bundle bundle) {
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
 		titleTv.setText("我的设置");// 设置标题；
@@ -107,13 +108,30 @@ public class UserSetting extends Activity {
 		setUserHeadBtn.setOnClickListener(new listener());
 		
 		if (bundle != null) {
-			headBmp = bundle.getParcelable("head_bmp");
+			userSetNickEt.setText(bundle.getString("nick_name"));
+			final String headBmpUrl = bundle.getString("head_bmp_url");
+			new Thread(new Runnable() {
+				
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					headBmp = Util.getbitmap(headBmpUrl);
+					handler.sendEmptyMessage(0);
+				}
+			}).start();
+			
+			
+		}
+	}
+	@SuppressLint("HandlerLeak")
+	private Handler handler = new Handler(){
+		@SuppressWarnings("deprecation")
+		public void handleMessage(android.os.Message msg) {
 			Drawable drawable = new BitmapDrawable(
 					BitmapUtil.toRoundBitmap(headBmp));// 获取到的头像转化成圆形
 			setUserHeadBtn.setBackgroundDrawable(drawable);
-			userSetNickEt.setText(bundle.getString("nick_name"));
-		}
-	}
+		};
+	};
 
 	class listener implements OnClickListener {
 

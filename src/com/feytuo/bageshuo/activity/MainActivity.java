@@ -3,28 +3,23 @@ package com.feytuo.bageshuo.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.color;
-import com.feytuo.bageshuo.R.drawable;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.fragment.Fragment1;
 import com.feytuo.bageshuo.fragment.Fragment2;
 import com.feytuo.bageshuo.fragment.Fragment3;
 import com.feytuo.bageshuo.fragment.Fragment4;
 import com.feytuo.bageshuo.util.DisplayUtil;
+import com.feytuo.chat.activity.BaseActivity;
 
 /**
  * app主页
@@ -37,7 +32,7 @@ import com.feytuo.bageshuo.util.DisplayUtil;
  * 
  */
 @SuppressLint("ResourceAsColor")
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseActivity {
 
 	private final static String TAG = "MAINACTIVITY";
 	// 定义3个Fragment的对象
@@ -45,8 +40,6 @@ public class MainActivity extends FragmentActivity {
 	private Fragment2 fg2;
 	private Fragment3 fg3;
 	private Fragment4 fg4;
-	// 帧布局对象,就是用来存放Fragment的容器
-	private FrameLayout flayout;
 	// 定义底部导航栏的四个布局
 	private RelativeLayout indexBottomBommunityRl;
 	private RelativeLayout indexBottomBageshuoRl;
@@ -246,5 +239,14 @@ public class MainActivity extends FragmentActivity {
 		indexBottomFriendIv.setImageResource(R.drawable.ic_friends_normal);
 		indexBottomFriendTv.setTextColor(R.color.index_botton_text_normal);
 	}
+	
+	@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            moveTaskToBack(false);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

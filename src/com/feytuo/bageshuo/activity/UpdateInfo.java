@@ -1,13 +1,11 @@
 package com.feytuo.bageshuo.activity;
 
-import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.feytuo.bageshuo.R;
 
 /**
  * 乡里乡亲的模块
@@ -30,10 +28,9 @@ public class UpdateInfo extends Activity {
 	}
 
 	private void initView() {
-
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
 		titleTv.setText("修改信息");// 设置标题；
-
+		
 	}
 
 	public void onBackBtn(View v) {

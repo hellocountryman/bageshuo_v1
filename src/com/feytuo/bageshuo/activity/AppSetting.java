@@ -1,11 +1,13 @@
 package com.feytuo.bageshuo.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.TextView;
 
 import com.feytuo.bageshuo.R;
+import com.feytuo.chat.activity.BaseActivity;
+import com.feytuo.chat.activity.SettingsFragment;
 
 /**
  * 系统设置的模块
@@ -17,7 +19,7 @@ import com.feytuo.bageshuo.R;
  * @author tangpeng
  * 
  */
-public class AppSetting extends Activity {
+public class AppSetting extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,11 @@ public class AppSetting extends Activity {
 
 		TextView titleTv = (TextView) findViewById(R.id.top_bar_title);
 		titleTv.setText("设置");// 设置标题；
+		
+		Fragment settingFragment = new SettingsFragment();
+		getSupportFragmentManager().beginTransaction()
+								   .add(R.id.setting_container, settingFragment)
+								   .commit();
 
 	}
 
