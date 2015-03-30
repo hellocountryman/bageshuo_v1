@@ -5,6 +5,7 @@ import java.util.Map;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -169,8 +170,9 @@ public class BageshuoAdapter extends BaseAdapter {
 				.getDrawable(
 						Integer.valueOf(list.get(position - 1)
 								.get("homeuerhead").toString())));
-		holder2.homeDetailsInvitationTitleTv.setText(list.get(position - 1)
-				.get("hometitle").toString());
+		holder2.homeDetailsInvitationTitleTv.setText(Html.fromHtml("”今天早上吃饭没“<font color=red>长沙话</font>怎么说？")); 
+//		holder2.homeDetailsInvitationTitleTv.setText(list.get(position - 1)
+//				.get("hometitle").toString());
 		holder2.homeDetailsUserheadLv.setOnClickListener(listen2);
 		holder2.homeDetailsInvitationTitleTv.setOnClickListener(listen2);
 		holder2.homeDetailsPalyIv.setOnClickListener(listen2);

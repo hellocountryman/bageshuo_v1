@@ -99,7 +99,7 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
 		//显示申请与通知item
 		if(username.equals(Constant.NEW_FRIENDS_USERNAME)){
 		    holder.nameTextview.setText(user.getNick());
-		    holder.avatar.setImageResource(R.drawable.new_friends_icon);
+		    holder.avatar.setImageResource(R.drawable.ic_new_friends);//好友图标
 			if(user.getUnreadMsgCount() > 0){
 			    holder.unreadMsgView.setVisibility(View.VISIBLE);
 			    holder.unreadMsgView.setText(user.getUnreadMsgCount()+"");
@@ -109,7 +109,7 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
 		}else if(username.equals(Constant.GROUP_USERNAME)){
 			//群聊item
 		    holder.nameTextview.setText(user.getNick());
-		    holder.avatar.setImageResource(R.drawable.groups_icon);
+		    holder.avatar.setImageResource(R.drawable.ic_my_groups);//分组图标
 		}else{
 		    holder.nameTextview.setText(username);
 		    //设置用户头像
@@ -149,7 +149,6 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
 		positionOfSection.put(0, 0);
 		sectionOfPosition.put(0, 0);
 		for (int i = 1; i < count; i++) {
-
 			String letter = getItem(i).getHeader();
 			System.err.println("contactadapter getsection getHeader:" + letter + " name:" + getItem(i).getUsername());
 			int section = list.size() - 1;

@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/set_select_sex_ll"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/set_select_sex_Rl"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:background="@color/white"
-    android:orientation="vertical"
-    android:visibility="gone" >
+    
+    android:layout_height="match_parent" >
 
-    <include layout="@layout/partingline_bottom_part" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/black" />
 
-    <Button
-        style="@style/set_sex_head_btn"
-        android:layout_marginTop="8.0dip"
-        android:onClick="setSelectSexManBtn"
-        android:text="@string/man" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/doctorimgfromcamera"
-        style="@style/set_sex_head_btn"
-        android:layout_marginTop="8.0dip"
-        android:onClick="setSelectSexWomenBtn"
-        android:text="@string/women" />
+        <Button
+            style="@style/set_sex_head_btn"
+            android:layout_marginTop="8.0dip"
+            android:onClick="setSelectSexManBtn"
+            android:text="@string/man" />
 
-    <Button
-        android:id="@+id/doctor_select_exit"
-        style="@style/set_sex_head_btn"
-        android:layout_marginBottom="8.0dip"
-        android:layout_marginTop="8.0dip"
-        android:onClick="setSelectSexCancelBtn"
-        android:text="@string/quxiao" />
+        <Button
+            android:id="@+id/doctorimgfromcamera"
+            style="@style/set_sex_head_btn"
+            android:layout_marginTop="8.0dip"
+            android:onClick="setSelectSexWomenBtn"
+            android:text="@string/women" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/doctor_select_exit"
+            style="@style/set_sex_head_btn"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginTop="8.0dip"
+            android:onClick="setSelectSexCancelBtn"
+            android:text="@string/quxiao" />
+    </LinearLayout>
+
+</RelativeLayout>

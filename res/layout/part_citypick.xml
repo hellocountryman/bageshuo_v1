@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/seting_open_select_city_ll"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/seting_open_select_city_Rl"
     android:layout_width="match_parent"
-    android:visibility="invisible"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:background="@color/white"
-    android:orientation="vertical" >
+    android:layout_height="match_parent"
+    android:visibility="invisible" >
 
-    <include layout="@layout/partingline_onehight_part" />
-
-    <RelativeLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="48dip" >
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/black" />
 
-        <TextView
-            style="@style/click_text_hint"
-            android:layout_width="60dip"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:clickable="true"
-            android:gravity="center"
-            android:onClick="setingSelectCityCancelTv"
-            android:text="@string/quxiao" />
-
-        <TextView
-            style="@style/click_text_hint"
-            android:layout_width="60dip"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:clickable="true"
-            android:gravity="center"
-            android:onClick="setingSelectCityOkLv"
-            android:text="@string/ok" />
-    </RelativeLayout>
-
-    <include layout="@layout/partingline_onehight_part" />
-
-    <com.feytuo.bageshuo.city.CityPicker
-        android:id="@+id/citycitypicker"
-        android:layout_width="fill_parent"
-        android:layout_height="150dip"
-        android:layout_gravity="center"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="@color/white"
-        android:gravity="center" >
-    </com.feytuo.bageshuo.city.CityPicker>
+        android:orientation="vertical" >
 
-</LinearLayout>
+        <include layout="@layout/partingline_onehight_part" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dip" >
+
+            <TextView
+                style="@style/click_text_hint"
+                android:layout_width="60dip"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="setingSelectCityCancelTv"
+                android:text="@string/quxiao" />
+
+            <TextView
+                style="@style/click_text_hint"
+                android:layout_width="60dip"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="setingSelectCityOkLv"
+                android:text="@string/ok" />
+        </RelativeLayout>
+
+        <include layout="@layout/partingline_onehight_part" />
+
+        <com.feytuo.bageshuo.city.CityPicker
+            android:id="@+id/citycitypicker"
+            android:layout_width="fill_parent"
+            android:layout_height="150dip"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:gravity="center" >
+        </com.feytuo.bageshuo.city.CityPicker>
+    </LinearLayout>
+
+</RelativeLayout>

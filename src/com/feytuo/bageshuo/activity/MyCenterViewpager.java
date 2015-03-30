@@ -1,12 +1,9 @@
 package com.feytuo.bageshuo.activity;
 
-import org.w3c.dom.Text;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.net.wifi.p2p.WifiP2pManager.UpnpServiceResponseListener;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -22,13 +19,10 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.feytuo.bageshuo.R;
-import com.feytuo.bageshuo.R.color;
-import com.feytuo.bageshuo.R.drawable;
-import com.feytuo.bageshuo.R.id;
-import com.feytuo.bageshuo.R.layout;
 import com.feytuo.bageshuo.fragment.CenterOneFragment;
 import com.feytuo.bageshuo.fragment.CenterTwoFragment;
 import com.feytuo.bageshuo.util.BitmapUtil;
@@ -48,9 +42,11 @@ public class MyCenterViewpager extends FragmentActivity {
 	private int currentOffset;// 当前总偏移量
 	private int currentTabInCAC;
 
-	private TextView centerUpdateinfoTv;// 修改个人信息的按钮
+	private ImageView centerUpdateinfoIv;// 修改个人信息的按钮
 	private ImageView mycenterUserHead;// 用户的头像圆角
+	private RelativeLayout centerUpdateHeadRl;
 
+	/** 修改头像的布局 **/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -80,11 +76,13 @@ public class MyCenterViewpager extends FragmentActivity {
 		BitmapDrawable bd = new BitmapDrawable(bitmapround);
 		mycenterUserHead.setBackgroundDrawable(bd);
 
-		centerUpdateinfoTv = (TextView) findViewById(R.id.center_updateinfo_tv);
+		centerUpdateinfoIv = (ImageView) findViewById(R.id.center_updateinfo_iv);
+		centerUpdateHeadRl = (RelativeLayout) findViewById(R.id.center_update_head_rl);
 
-		centerUpdateinfoTv.setOnClickListener(listener);
+		centerUpdateinfoIv.setOnClickListener(listener);
 		centerOneBtn.setOnClickListener(listener);
 		centerTwoBtn.setOnClickListener(listener);
+		mycenterUserHead.setOnClickListener(listener);
 	}
 
 	/**
@@ -194,10 +192,13 @@ public class MyCenterViewpager extends FragmentActivity {
 				viewPager.setCurrentItem(1, false);
 				currentTabInCAC = 1;
 				break;
-			case R.id.center_updateinfo_tv:// 好友列表按钮
+			case R.id.center_updateinfo_iv:// 好友列表按钮
 				Intent intentupdate = new Intent();
 				intentupdate.setClass(MyCenterViewpager.this, UpdateInfo.class);
 				startActivity(intentupdate);
+				break;
+			case R.id.center_user_head_iv:// 好友列表按钮
+				centerUpdateHeadRl.setVisibility(View.VISIBLE);
 				break;
 			}
 		}
@@ -254,4 +255,14 @@ public class MyCenterViewpager extends FragmentActivity {
 		intentset.setClass(MyCenterViewpager.this, AppSetting.class);
 		startActivity(intentset);
 	}
+
+	/**
+	 * 取消修改头像
+	 * 
+	 * @param v
+	 */
+	public void CenterHideupdateHead(View v) {
+		centerUpdateHeadRl.setVisibility(View.GONE);
+	}
+
 }

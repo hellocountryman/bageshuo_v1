@@ -92,7 +92,7 @@ public class OtherCenterAdapter extends BaseAdapter {
 				convertView = inflater.inflate(R.layout.center_head_part,
 						null);// 同样是将布局转化成view
 				holder1 = new NewViewHolder1();
-				holder1.centerUpdateinfoTv= (TextView) convertView.findViewById(R.id.center_updateinfo_tv);
+				holder1.centerUpdateinfoIv= (ImageView) convertView.findViewById(R.id.center_updateinfo_iv);
 				holder1.centerUserHeadIv=(ImageView)convertView.findViewById(R.id.center_user_head_iv);
 				holder1.centerPartinglineLl=(LinearLayout)convertView.findViewById(R.id.center_partingline_ll);
 				convertView.setTag(holder1);
@@ -157,7 +157,7 @@ public class OtherCenterAdapter extends BaseAdapter {
 		BitmapDrawable bd=new BitmapDrawable(bitmapround);
 		holder1.centerUserHeadIv.setBackgroundDrawable(bd);
 	
-		holder1.centerUpdateinfoTv.setVisibility(View.GONE);
+		holder1.centerUpdateinfoIv.setVisibility(View.GONE);
 		
 		holder1.centerPartinglineLl.setVisibility(View.VISIBLE);
 	}
@@ -245,7 +245,7 @@ public class OtherCenterAdapter extends BaseAdapter {
 	 */
 	class NewViewHolder1 {
 		private ImageView centerUserHeadIv;//用户头像
-		private TextView centerUpdateinfoTv;//修改个人信息
+		private ImageView centerUpdateinfoIv;//修改个人信息
 		private LinearLayout  centerPartinglineLl;//帖子和个人信息的分割线
 	}
 

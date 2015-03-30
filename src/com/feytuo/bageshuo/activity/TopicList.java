@@ -49,7 +49,7 @@ public class TopicList extends Activity implements IXListViewListener {
 		titleTv.setText(R.string.topiclist);// 设置标题
 
 		TopiclistXlv = (XListView) findViewById(R.id.topiclist_xlv);// 你这个listview是在这个layout里面
-		// TopiclistXlv.setPullRefreshEnable();// 不让他刷新
+		 TopiclistXlv.setPullLoadEnable(true);
 		adapter = new TopiclistAdapter(TopicList.this, getData());
 		TopiclistXlv.setAdapter(adapter);
 		TopiclistXlv.setXListViewListener(this);

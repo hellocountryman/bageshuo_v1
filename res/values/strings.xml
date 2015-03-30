@@ -28,7 +28,9 @@
     <string name="intput_phone">请输入手机号码 </string>
     <string name="myseting">我的设置</string>
     <string name="nick">昵称 </string>
+     <string name="xiangxiang">熟悉的才是好玩的 </string>
     <string name="sex">性别 </string>
+    <string name="sign">签名 </string>
     <string name="homeland">家乡 </string>
     <string name="gogogo">开始体验 </string>
     <string name="sethead">设置头像 </string>
@@ -38,6 +40,7 @@
     <string name="pleaseinputusername">请输入您的手机号码</string>
     <string name="pleaseinputword">请输入密码</string>
     <string name="Login">登录</string>
+    <string name="updatehead">修改头像</string>
     <string name="or">或</string>
     <string name="weiboLogin">微博登录</string>
     <string name="weixinLogin">微信登录</string>

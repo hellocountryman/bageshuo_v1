@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/top_bar_back_success" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/edittext_rela"
+            android:layout_width="match_parent"
+            android:layout_height="50.0dip"
+            android:layout_marginLeft="16.0dip"
+            android:layout_marginRight="16dp" >
+
+            <com.feytuo.chat.widget.PasteEditText
+                android:id="@+id/person_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:maxLength="20"
+                android:minHeight="40dp"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
+                android:paddingTop="3dp"
+                android:textSize="@dimen/field_textsize" >
+            </com.feytuo.chat.widget.PasteEditText>
+
+            <TextView
+                android:id="@+id/wordnumtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="4.0dip"
+                android:layout_marginRight="10.0dip"
+                android:text="0/20"
+                android:textColor="@color/index_color"
+                android:textSize="12.0sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/type_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edittext_rela"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginLeft="16.0dip"
+            android:layout_marginTop="8.0dip"
+            android:text="好名字可以让你的朋友更加容易记住你"
+            android:textColor="@color/index_color"
+            android:textSize="12.0sp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -11,7 +11,8 @@
         android:layout_alignWithParentIfMissing="true"
         android:background="@drawable/peng"
         android:scaleType="centerCrop" />
-    <TextView
+
+    <TextView
         android:id="@+id/title"
         style="@android:style/TextAppearance.Large.Inverse"
         android:layout_width="250dip"
@@ -22,7 +23,7 @@
         android:padding="10dp"
         android:textColor="@android:color/primary_text_light"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/play"

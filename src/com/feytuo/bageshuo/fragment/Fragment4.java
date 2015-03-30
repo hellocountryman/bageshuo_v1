@@ -123,11 +123,24 @@ public class Fragment4 extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 		
 		initViewPager();
-		// 初始化view
+		
 		initView();
-		// 初始化滑动条
+
 		initCursor();
 		
+		inithuanxin(savedInstanceState);
+	
+        
+	}
+	
+	
+	
+	/**
+	 * 好友使用环信
+	 * @param savedInstanceState
+	 */
+	private void inithuanxin(Bundle savedInstanceState)
+	{
 		mainActivity = (BaseActivity) getActivity();
         if(savedInstanceState != null && savedInstanceState.getBoolean(Constant.ACCOUNT_REMOVED, false)){
             // 防止被移除后，没点确定按钮然后按了home键，长期在后台又进app导致的crash
@@ -189,8 +202,11 @@ public class Fragment4 extends Fragment {
         EMGroupManager.getInstance().addGroupChangeListener(new MyGroupChangeListener());
         // 通知sdk，UI 已经初始化完毕，注册了相应的receiver和listener, 可以接受broadcast了
         EMChat.getInstance().setAppInited();
+        
 	}
-	
+	/**
+	 *  初始化view
+	 */
 	private void initViewPager() {
 		// TODO Auto-generated method stub
 		 // 这个fragment只显示好友和群组的聊天记录

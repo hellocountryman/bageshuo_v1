@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/center_update_head_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="@color/black"
+        android:onClick="CenterHideupdateHead" />
+
+    <ImageView
+        android:layout_width="300dip"
+        android:layout_height="300.0dip"
+        android:layout_centerInParent="true"
+        android:background="@drawable/a01" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dip"
+        android:layout_marginLeft="50dip"
+        android:layout_marginRight="50dip"
+        android:background="@drawable/fr_write"
+        android:text="@string/updatehead"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+</RelativeLayout>

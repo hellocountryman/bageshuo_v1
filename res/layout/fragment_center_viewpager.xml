@@ -1,65 +1,72 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical" >
-
-    <include layout="@layout/top_bar_back_setting" />
-
-    <include layout="@layout/center_head_part" />
-
-    <LinearLayout
-        android:id="@+id/tab_group"
-        android:layout_width="match_parent"
-        android:layout_height="30.0dip"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/center_one_btn"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:clickable="false"
-            android:paddingBottom="2dip"
-            android:paddingTop="7dip"
-            android:scaleType="matrix"
-            android:text="帖子"
-            android:textColor="@color/index_color"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/center_two_btn"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:clickable="false"
-            android:paddingBottom="2dip"
-            android:paddingTop="7dip"
-            android:scaleType="matrix"
-            android:text="动态"
-            android:textColor="@color/dynamictext"
-            android:textSize="13sp" />
-    </LinearLayout>
+    android:layout_height="match_parent" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/twoheight" >
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
 
-        <ImageView
-            android:id="@+id/cursor"
-            android:layout_width="wrap_content"
+        <include layout="@layout/top_bar_back_setting" />
+
+        <include layout="@layout/center_head_part" />
+
+        <LinearLayout
+            android:id="@+id/tab_group"
+            android:layout_width="match_parent"
+            android:layout_height="30.0dip"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/center_one_btn"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:clickable="false"
+                android:paddingBottom="2dip"
+                android:paddingTop="7dip"
+                android:scaleType="matrix"
+                android:text="帖子"
+                android:textColor="@color/index_color"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/center_two_btn"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:clickable="false"
+                android:paddingBottom="2dip"
+                android:paddingTop="7dip"
+                android:scaleType="matrix"
+                android:text="动态"
+                android:textColor="@color/dynamictext"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/index_color"
-            android:orientation="vertical" />
+            android:background="@color/twoheight" >
+
+            <ImageView
+                android:id="@+id/cursor"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:background="@color/index_color"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/contact_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/contact_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <include layout="@layout/part_center_update_head" />
 
-</LinearLayout>
+</RelativeLayout>

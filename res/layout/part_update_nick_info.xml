@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="60dip"
     android:background="@color/white"
+    android:focusableInTouchMode="true"
     android:gravity="center_vertical"
     android:orientation="horizontal" >
 
@@ -11,17 +12,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dip"
-        android:text="@string/sex" />
+        android:focusable="false"
+        android:text="@string/nick" />
 
     <TextView
-        android:id="@+id/user_set_sex_tv"
+        android:id="@+id/user_update_nick_et"
         style="@style/text_black"
-        android:layout_width="0dip"
+     
         android:layout_height="match_parent"
         android:layout_marginLeft="25dip"
+           android:layout_width="0dip"
         android:layout_weight="1"
-        android:clickable="true"
-        android:gravity="center_vertical" />
+        android:background="@null"
+        android:clickable="true" />
 
     <ImageView
         android:layout_width="12.0dip"

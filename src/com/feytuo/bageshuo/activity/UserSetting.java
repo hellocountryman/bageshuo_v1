@@ -26,7 +26,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,9 +58,9 @@ public class UserSetting extends Activity {
 	private Button setUserHeadBtn;// 头像
 	private TextView userSetHomelandTv;// 家乡
 	private TextView userSetSexTv;// 性别
-	private TextView userSetNickEt;// 昵称
-	private LinearLayout setingOpenselectCityLl;// 时间选择器的布局
-	private LinearLayout setSelectSexLl;// 选择性别的布局
+	private EditText userSetNickEt;// 昵称
+	private RelativeLayout setingOpenselectCityRl;// 时间选择器的布局
+	private RelativeLayout setSelectSexRl;// 选择性别的布局
 	private LinearLayout setSelectHeadLl;// 选择头像的布局
 	private CityPicker cityPicker;// 时间选择器
 
@@ -97,15 +99,17 @@ public class UserSetting extends Activity {
 
 		setUserHeadBtn = (Button) findViewById(R.id.set_user_head_btn);
 		cityPicker = (CityPicker) findViewById(R.id.citycitypicker);
-		userSetNickEt = (TextView) findViewById(R.id.user_set_nick_et);
+		userSetNickEt = (EditText) findViewById(R.id.user_set_nick_et);
 		userSetSexTv = (TextView) findViewById(R.id.user_set_sex_tv);
 		userSetHomelandTv = (TextView) findViewById(R.id.user_set_homeland_tv);
 
-		setingOpenselectCityLl = (LinearLayout) findViewById(R.id.seting_open_select_city_ll);
-		setSelectSexLl = (LinearLayout) findViewById(R.id.set_select_sex_ll);
+		setingOpenselectCityRl = (RelativeLayout) findViewById(R.id.seting_open_select_city_Rl);
+		setSelectSexRl = (RelativeLayout) findViewById(R.id.set_select_sex_Rl);
 		setSelectHeadLl = (LinearLayout) findViewById(R.id.set_select_head_ll);
 
 		setUserHeadBtn.setOnClickListener(new listener());
+		userSetSexTv.setOnClickListener(new listener());
+		userSetHomelandTv.setOnClickListener(new listener());
 		
 		if (bundle != null) {
 			userSetNickEt.setText(bundle.getString("nick_name"));
@@ -140,12 +144,19 @@ public class UserSetting extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.set_user_head_btn:
-				setSelectSexLl.setVisibility(View.GONE);//
+				setSelectSexRl.setVisibility(View.GONE);//
 				softkeyboard();
 				setSelectHeadLl.setVisibility(View.VISIBLE);
-				setingOpenselectCityLl.setVisibility(View.GONE);
+				setingOpenselectCityRl.setVisibility(View.GONE);
+				break;
+			case R.id.user_set_sex_tv:
+				settingSexLl();
+				break;
+			case R.id.user_set_homeland_tv:
+				settingHomelandLl();
 				break;
 
+				
 			default:
 				break;
 			}
@@ -153,49 +164,68 @@ public class UserSetting extends Activity {
 
 	}
 
-	// 点击性别的布局时
-	public void settingSexLl(View v) {
-		setingOpenselectCityLl.setVisibility(View.GONE);
+	/**
+	 * 点击性别的布局时
+	 */
+	private void settingSexLl() {
+		setingOpenselectCityRl.setVisibility(View.GONE);
 		setSelectHeadLl.setVisibility(View.GONE);
-		setSelectSexLl.setVisibility(View.VISIBLE);//
+		setSelectSexRl.setVisibility(View.VISIBLE);//
 		softkeyboard();
 	}
 
-	// 点击性别的男
+	/**
+	 *  点击性别的男
+	 * @param v
+	 */
 	public void setSelectSexManBtn(View v) {
-		setSelectSexLl.setVisibility(View.GONE);//
+		setSelectSexRl.setVisibility(View.GONE);//
 		userSetSexTv.setText("男");
 	}
 
-	// 点击性别的女
+	/**
+	 * 点击性别的女
+	 * @param v
+	 */
 	public void setSelectSexWomenBtn(View v) {
-		setSelectSexLl.setVisibility(View.GONE);//
+		setSelectSexRl.setVisibility(View.GONE);//
 		userSetSexTv.setText("女");
 	}
 
-	// 点击性别的取消
+	/**
+	 *  点击性别的取消
+	 * @param v
+	 */
 	public void setSelectSexCancelBtn(View v) {
-		setSelectSexLl.setVisibility(View.GONE);//
+		setSelectSexRl.setVisibility(View.GONE);//
 	}
 
-	// 点击家乡的布局时
-	public void settingHomelandLl(View v) {
+	/**
+	 *  点击家乡的布局时
+	 */
+	private void settingHomelandLl() {
 		softkeyboard();
 		setSelectHeadLl.setVisibility(View.GONE);
-		setSelectSexLl.setVisibility(View.GONE);//
-		setingOpenselectCityLl.setVisibility(View.VISIBLE);
+		setSelectSexRl.setVisibility(View.GONE);//
+		setingOpenselectCityRl.setVisibility(View.VISIBLE);
 
 	}
 
-	// 点击选择城市弹出选择器是ok
+	/**
+	 *  点击选择城市弹出选择器是ok
+	 * @param v
+	 */
 	public void setingSelectCityOkLv(View v) {
 		userSetHomelandTv.setText(cityPicker.getCity_string() + "");
-		setingOpenselectCityLl.setVisibility(View.GONE);
+		setingOpenselectCityRl.setVisibility(View.GONE);
 	}
 
-	// 点击选择城市弹出选择器是cancal
+	/**
+	 * 点击选择城市弹出选择器是cancal
+	 * @param v
+	 */
 	public void setingSelectCityCancelTv(View v) {
-		setingOpenselectCityLl.setVisibility(View.GONE);
+		setingOpenselectCityRl.setVisibility(View.GONE);
 	}
 
 	// 如果想在Activity中得到新打开Activity 关闭后返回的数据，需要使用系统提供的

@@ -3,9 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="60dip"
     android:background="@color/white"
-    android:clickable="true"
     android:gravity="center_vertical"
-    android:onClick="settingHomelandLl"
     android:orientation="horizontal" >
 
     <TextView
@@ -22,6 +20,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="25dip"
         android:layout_weight="1"
+        android:clickable="true"
         android:gravity="center_vertical" />
 
     <ImageView

@@ -35,9 +35,9 @@ public class UserUtils {
     public static void setUserAvatar(Context context, String username, ImageView imageView){
         User user = getUserInfo(username);
         if(user != null){
-            Picasso.with(context).load(user.getAvatar()).placeholder(R.drawable.default_avatar).into(imageView);
+            Picasso.with(context).load(user.getAvatar()).placeholder(R.drawable.ic_launcher).into(imageView);
         }else{
-            Picasso.with(context).load(R.drawable.default_avatar).into(imageView);
+            Picasso.with(context).load(R.drawable.ic_launcher).into(imageView);
         }
     }
     

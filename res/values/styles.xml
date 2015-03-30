@@ -39,7 +39,7 @@
     <!-- 显示性别，家乡的文字要加深 -->
     <style name="text_black">
         <item name="android:textColor">@color/tiezi</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <!-- 一般的文本 -->

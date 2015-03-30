@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_hight"
+    android:background="@color/index_color"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/top_bar_return_success_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8.0dip"
+        android:clickable="true"
+        android:drawableLeft="@drawable/ic_back"
+        android:drawablePadding="8.0dip"
+        android:onClick="ReturnSuccess"
+        android:text="@string/returnstring"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/top_bar_title_success_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_text_size" />
+
+    <TextView
+        android:id="@+id/top_bar_title_ok_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8.0dip"
+        android:clickable="true"
+        android:text="@string/save"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

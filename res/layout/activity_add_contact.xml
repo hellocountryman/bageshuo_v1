@@ -10,7 +10,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_top_bar"
-        android:background="@color/top_bar_normal_bg"
+        android:background="@color/index_color"
         android:gravity="center_vertical">
 
         <include layout="@layout/commom_back_btn" />
@@ -68,7 +68,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="11dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/default_avatar" />
+                android:src="@drawable/ic_launcher" />
 
             <TextView
                 android:id="@+id/name"

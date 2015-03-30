@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_bg"
-    android:orientation="vertical" >
+    android:background="@color/content_bg" >
 
     <include layout="@layout/top_bar_back" />
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/title_hight"
+        android:background="@drawable/input_phone_bg"
+        android:orientation="vertical" >
+
+        <include layout="@layout/part_update_nick_info" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginLeft="25dip"
+            android:layout_marginRight="25dip"
+            android:background="@color/huatiandperson" />
+
+        <include layout="@layout/part_set_sex_info" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginLeft="25dip"
+            android:layout_marginRight="25dip"
+            android:background="@color/huatiandperson" />
+
+        <include layout="@layout/part_set_homeland_info" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginLeft="25dip"
+            android:layout_marginRight="25dip"
+            android:background="@color/huatiandperson" />
+
+        <include layout="@layout/part_set_sign_info" />
+    </LinearLayout>
+
+    <include layout="@layout/part_citypick" />
+
+    <include layout="@layout/part_select_sex" />
+
+</RelativeLayout>

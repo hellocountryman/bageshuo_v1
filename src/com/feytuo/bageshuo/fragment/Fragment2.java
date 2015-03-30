@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.feytuo.bageshuo.R;
 import com.feytuo.bageshuo.adapter.BageshuoAdapter;
@@ -32,8 +31,9 @@ public class Fragment2 extends Fragment implements IXListViewListener {
 	private Handler mHandler;
 	private ArrayList<Map<String, Object>> dlist;
 	private BageshuoAdapter bageshuoadapter;
-	private String[] arraytitle = { "好好学习，天天向上 用粤语这么说？", "恭喜发财，红包拿来 用闽南语怎么说？",
-			"你吃饭了没有 用长沙话怎么说", "你今天很漂亮，像花儿一样用东北话怎么说", "你美的用四川话怎么说" };
+	private String[] arraytitle = { "“今天早上吃饭没有”【长沙话】是怎么说？",
+			"”怎么这样可以这样呀“【长沙话】是怎么说？", "”我爱你“是这样说的，点击试听",
+			"”我爱你“是这样说的，点击试听", "“今天早上吃饭没有。我不知道”长沙话】是怎么说？" };
 	private int[] arrayuserhead = { R.drawable.lunbo, R.drawable.lunbo,
 			R.drawable.lunbo, R.drawable.lunbo, R.drawable.lunbo };
 
@@ -51,11 +51,6 @@ public class Fragment2 extends Fragment implements IXListViewListener {
 	}
 
 	private void initView() {
-		// TODO Auto-generated method stub
-		TextView titleTv = (TextView) getActivity().findViewById(
-				R.id.top_bar_no_back_title);
-
-		titleTv.setText("八哥说方言");// 设置标题；
 		bageshuoXlv = (XListView) getActivity().findViewById(R.id.bageshuo_xlv);// 你这个listview是在这个layout里面
 		bageshuoXlv.setPullLoadEnable(true);// 设置让它上拉，FALSE为不让上拉，便不加载更多数据
 
@@ -64,9 +59,9 @@ public class Fragment2 extends Fragment implements IXListViewListener {
 		bageshuoXlv.setAdapter(bageshuoadapter);
 		bageshuoXlv.setXListViewListener(this);
 		mHandler = new Handler();
-
 	}
 
+	
 	private ArrayList<Map<String, Object>> getData() {
 		dlist = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < arraytitle.length; i++) {

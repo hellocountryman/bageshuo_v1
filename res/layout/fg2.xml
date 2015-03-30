@@ -4,9 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/content_bg"
     android:orientation="vertical" >
-
-    <include layout="@layout/top_bar_no_back_title" />
-
        <com.feytuo.bageshuo.widget.XListView
         android:id="@+id/bageshuo_xlv"
         android:layout_width="match_parent"

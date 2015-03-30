@@ -43,23 +43,22 @@
                         android:layout_height="wrap_content"
                         android:text="唐朝兄弟"
                         android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:layout_width="15dip"
                         android:layout_height="15dip"
                         android:layout_marginLeft="16dip"
-                        android:background="@drawable/ic_sex_man" />
+                        android:background="@drawable/ic_sex_woman" />
 
-                    <TextView
-                        android:id="@+id/center_updateinfo_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8.0dip"
-                        android:text="@string/update"
-                        android:clickable="true"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
+                    <ImageView
+                        android:id="@+id/center_updateinfo_iv"
+                        android:layout_width="16dip"
+                        android:layout_height="16dip"
+                        android:layout_marginLeft="16.0dip"
+                        android:clickable="true" 
+                        android:background="@drawable/plugin_mail_list_compose_icon"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -71,8 +70,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_location_yellow"
-                        android:text="长沙"
+                        android:text="家乡:长沙"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
 
@@ -90,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8.0dip"
-                    android:text="个性签名：好好学习，天天向上"
+                    android:text="签名：好好学习，天天向上"
                     android:textColor="@color/white"
                     android:textSize="13sp" />
             </LinearLayout>
