@@ -22,10 +22,10 @@
 
         <ImageView
             android:id="@+id/iv_new_contact"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
             android:layout_alignParentRight="true"
-            android:background="@drawable/ic_search_friends"
+            android:background="@drawable/ic_search"
             android:clickable="true"
             android:scaleType="centerInside" />
     </RelativeLayout>
